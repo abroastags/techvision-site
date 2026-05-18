@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import markImg from '/assets/techvision-mark.png';
 
 const links = [
-  { id: 'work',    label: 'Work' },
-  { id: 'do',      label: 'What we do' },
-  { id: 'ops',     label: 'Operations' },
-  { id: 'company', label: 'Company' },
+  { id: 'work',    href: '/#work',       label: 'Work' },
+  { id: 'do',      href: '/#do',         label: 'What we do' },
+  { id: 'ops',     href: '/#ops',        label: 'Operations' },
+  { id: 'about',   href: '/about.html',  label: 'About' },
 ];
 
 export default function Header({ activeSection }) {
@@ -20,13 +20,13 @@ export default function Header({ activeSection }) {
 
   return (
     <header className={`tv-nav ${scrolled ? 'is-scrolled' : ''}`}>
-      <a href="#top" className="tv-nav__brand" aria-label="techvision home">
+      <a href="/" className="tv-nav__brand" aria-label="techvision home">
         <img src={markImg} alt="" width="26" height="26" />
         <span>techvision</span>
       </a>
       <nav className="tv-nav__links" aria-label="Primary">
         {links.map(l => (
-          <a key={l.id} href={`#${l.id}`} className={activeSection === l.id ? 'is-active' : ''}>
+          <a key={l.id} href={l.href} className={activeSection === l.id ? 'is-active' : ''}>
             {l.label}
           </a>
         ))}
@@ -36,7 +36,7 @@ export default function Header({ activeSection }) {
         <span className="tv-status-dot tv-status-dot--ok" />
         <span className="tv-mono">All systems · 99.997%</span>
       </div>
-      <a href="#contact" className="tv-btn tv-btn--primary tv-btn--sm">
+      <a href="/#contact" className="tv-btn tv-btn--primary tv-btn--sm">
         Start a project <span aria-hidden="true">→</span>
       </a>
     </header>

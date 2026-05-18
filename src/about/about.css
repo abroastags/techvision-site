@@ -1,0 +1,165 @@
+/* =========================================================================
+   TechVision · About page styles.
+   Builds on tokens.css + marketing.css. Adds about-only layout pieces.
+   ========================================================================= */
+
+/* ── HERO ──────────────────────────────────────────────────────────────── */
+.about-hero { padding: 88px 0 72px; }
+.about-hero__claim { max-width: 18ch; margin-bottom: 40px; }
+.about-hero__proof {
+  display: grid; grid-template-columns: 7fr 5fr; gap: 32px;
+  border-top: 1px solid var(--border-1);
+  padding-top: 32px;
+}
+.about-hero__proof p {
+  font-size: 19px; line-height: 1.45; color: var(--fg-2);
+  margin: 0; max-width: 56ch; text-wrap: pretty;
+}
+.about-hero__proof p b { color: var(--fg-1); font-weight: 600; }
+.about-hero__sub {
+  font-family: var(--font-sans);
+  font-size: 15px !important; line-height: 1.55 !important;
+  color: var(--fg-3) !important; border-left: 2px solid var(--tv-blue);
+  padding-left: 16px; max-width: 38ch !important;
+}
+
+/* ── STORY ─────────────────────────────────────────────────────────────── */
+.about-story { padding: 64px 0 32px; }
+.about-story__intro { max-width: 44ch; margin: 0 0 40px; }
+
+.about-story__list { list-style: none; margin: 0; padding: 0; }
+.about-story__item {
+  display: grid; grid-template-columns: 110px 1fr;
+  gap: 32px; align-items: start;
+  padding: 24px 0;
+  border-top: 1px solid var(--border-1);
+}
+.about-story__item:last-child { border-bottom: 1px solid var(--border-1); }
+.about-story__year {
+  font-size: 13px; color: var(--tv-blue);
+  letter-spacing: 0.06em; padding-top: 4px;
+}
+.about-story__title {
+  font-family: var(--font-display); font-size: 24px; font-weight: 600;
+  letter-spacing: -0.015em; line-height: 1.15;
+  margin: 0 0 6px; color: var(--fg-1);
+}
+.about-story__body p {
+  font-size: 16px; line-height: 1.55; color: var(--fg-2);
+  margin: 0; max-width: 56ch;
+}
+
+/* ── BY THE NUMBERS ───────────────────────────────────────────────────── */
+.about-numbers { padding: 64px 0; }
+.about-numbers__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 1px solid var(--border-1);
+  border-left: 1px solid var(--border-1);
+}
+.about-numbers__cell {
+  padding: 28px 24px 22px;
+  border-right: 1px solid var(--border-1);
+  border-bottom: 1px solid var(--border-1);
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--bg-1);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.about-numbers__cell:hover { background: var(--tv-paper); }
+.about-numbers__value {
+  font-family: var(--font-display); font-size: 36px; font-weight: 600;
+  letter-spacing: -0.025em; line-height: 1; color: var(--fg-1);
+}
+.about-numbers__label { font-size: 14px; color: var(--fg-2); margin-top: 4px; }
+.about-numbers__note {
+  font-size: 11px; color: var(--fg-3); letter-spacing: 0.04em;
+  margin-top: auto; padding-top: 12px;
+}
+
+/* ── PRINCIPLES ───────────────────────────────────────────────────────── */
+.about-principles { padding: 64px 0; background: var(--tv-paper); }
+.about-principles__list { display: flex; flex-direction: column; }
+.about-principles__row {
+  display: grid; grid-template-columns: 64px 1fr;
+  gap: 32px; align-items: start;
+  padding: 28px 0;
+  border-top: 1px solid var(--border-1);
+}
+.about-principles__row:last-child { border-bottom: 1px solid var(--border-1); }
+.about-principles__num {
+  font-size: 13px; color: var(--fg-3); letter-spacing: 0.14em;
+  padding-top: 8px;
+}
+.about-principles__name {
+  font-family: var(--font-display); font-size: 26px; font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.15;
+  margin: 0 0 8px; color: var(--fg-1); text-wrap: balance;
+}
+.about-principles__body p {
+  font-size: 16px; line-height: 1.55; color: var(--fg-2);
+  margin: 0; max-width: 64ch;
+}
+
+/* ── CONTACT (placeholder email) ──────────────────────────────────────── */
+.about-contact { padding: 80px 0 96px; }
+.about-contact__layout {
+  display: grid; grid-template-columns: 5fr 7fr;
+  gap: 48px; align-items: start;
+}
+.about-contact__pitch {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw + 1rem, 3.25rem);
+  font-weight: 600; line-height: 1.05; letter-spacing: -0.025em;
+  margin: 0 0 16px; color: var(--fg-1); text-wrap: balance;
+}
+.about-contact__copy p {
+  font-size: 16px; line-height: 1.55; color: var(--fg-2);
+  margin: 0 0 14px; max-width: 42ch;
+}
+.about-contact__sub {
+  font-size: 12px !important; color: var(--fg-3) !important;
+  letter-spacing: 0.04em; margin-top: 22px !important;
+}
+
+.about-contact__card {
+  border: 1px solid var(--border-2);
+  background: var(--tv-paper);
+  padding: 32px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.about-contact__label {
+  display: inline-flex; gap: 6px; align-items: center;
+}
+.about-contact__email {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+  font-weight: 500; letter-spacing: -0.015em;
+  color: var(--tv-blue);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-1);
+  word-break: break-all;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.about-contact__email:hover { color: var(--tv-blue-700); }
+.about-contact__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.about-contact__meta {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; padding-top: 18px;
+  border-top: 1px solid var(--border-1);
+  font-size: 12px; color: var(--fg-2);
+}
+.about-contact__meta-l {
+  display: block; color: var(--fg-3); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+@media (max-width: 880px) {
+  .about-hero__proof          { grid-template-columns: 1fr; gap: 24px; }
+  .about-story__item          { grid-template-columns: 80px 1fr; gap: 16px; }
+  .about-numbers__grid        { grid-template-columns: repeat(2, 1fr); }
+  .about-principles__row      { grid-template-columns: 48px 1fr; gap: 16px; }
+  .about-contact__layout      { grid-template-columns: 1fr; gap: 32px; }
+  .about-contact__meta        { grid-template-columns: 1fr; }
+}

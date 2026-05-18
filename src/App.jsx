@@ -29,11 +29,15 @@ export default function App() {
 
   useEffect(() => {
     const onClick = (e) => {
-      const a = e.target.closest('a[href^="#"]');
+      const a = e.target.closest('a[href*="#"]');
       if (!a) return;
       const href = a.getAttribute('href');
-      if (href.length < 2) return;
-      const target = document.querySelector(href);
+      const hashIdx = href.indexOf('#');
+      const hash = href.slice(hashIdx);
+      const path = href.slice(0, hashIdx);
+      if (hash.length < 2) return;
+      if (path && path !== '/' && path !== window.location.pathname) return;
+      const target = document.querySelector(hash);
       if (!target) return;
       e.preventDefault();
       const top = target.getBoundingClientRect().top + window.scrollY - 60;
