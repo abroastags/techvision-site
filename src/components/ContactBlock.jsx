@@ -1,22 +1,38 @@
 import { useState } from 'react';
 
 const TICKET_BASE = Math.floor(Math.random() * 8999 + 1000);
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbywKA9azL0NT_Nh4IRnIl9_hu8XNR8CzzJ3VzUpu4me_exugXRtOAU4aqxMqY3rXE8QsQ/exec';
 
 export default function ContactBlock() {
   const [form, setForm] = useState({ name: '', email: '', org: '', project: 'erp', message: '', oncall: false });
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const update = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const err = {};
     if (!form.name.trim()) err.name = 'Required.';
     if (!form.email.match(/.+@.+\..+/)) err.email = 'Need a real email.';
     if (!form.message.trim()) err.message = 'One sentence is fine.';
     setErrors(err);
-    if (Object.keys(err).length === 0) setSent(true);
+    if (Object.keys(err).length > 0) return;
+
+    setSubmitting(true);
+    try {
+      await fetch(SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ ...form, userAgent: navigator.userAgent }),
+      });
+    } catch (_) {
+      /* no-cors fire-and-forget — the request still reaches Apps Script */
+    }
+    setSubmitting(false);
+    setSent(true);
   };
 
   if (sent) {
@@ -93,7 +109,9 @@ export default function ContactBlock() {
             <span>I need on-call coverage included</span>
           </label>
           <div className="tv-field--wide tv-contact__submit">
-            <button className="tv-btn tv-btn--primary" type="submit">Send <span aria-hidden="true">→</span></button>
+            <button className="tv-btn tv-btn--primary" type="submit" disabled={submitting}>
+              {submitting ? 'Sending…' : <>Send <span aria-hidden="true">→</span></>}
+            </button>
             <span className="tv-mono tv-contact__hint">We reply within one business day.</span>
           </div>
         </form>
