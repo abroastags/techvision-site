@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TechVision — Built like a city runs on it.</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="marketing.css">
+<link rel="icon" href="../public/assets/techvision-mark.png">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useMemo } = React;
+const ASSETS = '../public/assets/';
+
+/* ── Header ──────────────────────────────────────────────────────── */
+function Header({ activeSection }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const links = [
+    { id: 'work',    label: 'Work' },
+    { id: 'do',      label: 'What we do' },
+    { id: 'ops',     label: 'Operations' },
+    { id: 'company', label: 'Company' },
+  ];
+  return (
+    <header className={`tv-nav ${scrolled ? 'is-scrolled' : ''}`}>
+      <a href="#top" className="tv-nav__brand" aria-label="techvision home">
+        <img src={ASSETS + 'techvision-mark.png'} alt="" width="26" height="26" />
+        <span>techvision</span>
+      </a>
+      <nav className="tv-nav__links" aria-label="Primary">
+        {links.map(l => (
+          <a key={l.id} href={`#${l.id}`} className={activeSection === l.id ? 'is-active' : ''}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+      <div className="tv-nav__spacer" />
+      <div className="tv-nav__status" title="Live status">
+        <span className="tv-status-dot tv-status-dot--ok" />
+        <span className="tv-mono">All systems · 99.997%</span>
+      </div>
+      <a href="#contact" className="tv-btn tv-btn--primary tv-btn--sm">
+        Start a project <span aria-hidden="true">→</span>
+      </a>
+    </header>
+  );
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+function Hero() {
+  return (
+    <section id="top" className="tv-hero">
+      <div className="tv-hero__grid" aria-hidden="true" />
+      <div className="tv-section">
+        <div className="tv-eyebrow tv-hero__eyebrow">
+          <span aria-hidden="true">▾</span>
+          <span>Dhaka · est. 2009 · still on-call</span>
+        </div>
+        <h1 className="tv-hero__claim">
+          Built like a city<br/>runs on it.
+        </h1>
+        <div className="tv-hero__proof">
+          <p>
+            We built the ERP that runs <b>fifteen organisations under Bangladesh's Power Division.</b>{' '}
+            We built <b>Binimoy</b>, the country's interoperable digital transaction platform.
+            We run <b>proxy voting on blockchain</b> for the second-largest US shareholder
+            management firm, and <b>compliance software</b> for banks covering AML, CRA, and HMDA.
+          </p>
+          <div className="tv-hero__actions">
+            <a href="#work" className="tv-btn tv-btn--primary">See the work <span aria-hidden="true">→</span></a>
+            <a href="#contact" className="tv-btn tv-btn--ghost">Talk to engineering</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── StatusTicker ─────────────────────────────────────────────────── */
+function StatusTicker() {
+  const items = [
+    'binimoy.gov.bd · 200 OK · 47ms',
+    'power-erp-dse · 15/15 nodes healthy',
+    'proxy-vote-prod · last block 1 sec ago',
+    'dncc-app · 4.1M sessions / mo',
+    'ncc-imaging · model v2.3 · p95 1.2s',
+    'compliance-aml · 0 stale alerts',
+    '▾ we answer the phone at 3am',
+  ];
+  const doubled = [...items, ...items];
+  return (
+    <div className="tv-ticker" aria-hidden="true">
+      <div className="tv-ticker__track">
+        {doubled.map((t, i) => (
+          <span key={i} className="tv-ticker__item">
+            <span className="tv-status-dot tv-status-dot--ok" />
+            <span className="tv-mono">{t}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── CaseCard ─────────────────────────────────────────────────────── */
+function CaseCard({ tag, name, claim, blurb, region, year, metric, metricLabel }) {
+  return (
+    <article className="tv-case">
+      <div className="tv-eyebrow tv-case__eyebrow">
+        <span aria-hidden="true">▾</span>
+        <span>{tag}</span>
+      </div>
+      <h3 className="tv-case__title">{name}</h3>
+      <p className="tv-case__claim">{claim}</p>
+      <p className="tv-case__blurb">{blurb}</p>
+      <div className="tv-case__meta">
+        <span>{region} · {year}</span>
+        <span className="tv-case__metric">{metricLabel} <b>{metric}</b></span>
+      </div>
+    </article>
+  );
+}
+
+/* ── WorkGrid ─────────────────────────────────────────────────────── */
+const CASES = [
+  { id: 1, tag: 'Power Division', sector: 'erp', name: 'Power Sector ERP', claim: 'ERP across fifteen organisations.',
+    blurb: "Asset management, finance and HR on one platform — every utility under Bangladesh's Power Division.",
+    region: 'BD', year: '2017→', metric: '99.997%', metricLabel: 'Uptime' },
+  { id: 2, tag: 'Bangladesh Bank', sector: 'fintech', name: 'Binimoy IDTP', claim: "Bangladesh's interoperable digital transaction platform.",
+    blurb: "National rails connecting banks, MFS and PSPs. We own the platform's reference implementation.",
+    region: 'BD', year: '2022→', metric: '38M', metricLabel: 'Tx / mo' },
+  { id: 3, tag: 'DNCC', sector: 'gov', name: 'DNCC citizen app', claim: 'One app for everything the city does.',
+    blurb: 'Holding tax, trade licences, garbage pickup, complaint routing — for Dhaka North City Corporation.',
+    region: 'BD', year: '2021→', metric: '4.1M', metricLabel: 'Sessions / mo' },
+  { id: 4, tag: 'NCC', sector: 'ai', name: 'Cardiac imaging AI', claim: 'AI imaging for the National Cardiovascular Center.',
+    blurb: 'Reads echocardiograms in seconds, flags anomalies for the senior cardiologist. On-prem inference.',
+    region: 'BD', year: '2024→', metric: '1.2s', metricLabel: 'p95' },
+  { id: 5, tag: 'US Fintech', sector: 'chain', name: 'Proxy voting on chain', claim: 'Blockchain settlement for the second-largest shareholder firm.',
+    blurb: 'Every record reconciles, every vote is auditable, AML clean.',
+    region: 'USA', year: '2023→', metric: '4.1M', metricLabel: 'Records' },
+  { id: 6, tag: 'MLB', sector: 'chain', name: 'MLB franchise NFTs', claim: 'NFT infrastructure for a Major League Baseball franchise.',
+    blurb: 'Custody, secondary market, royalty splits. Built so the front office never has to think about it.',
+    region: 'USA', year: '2022→', metric: '0', metricLabel: 'Incidents' },
+  { id: 7, tag: 'US Banks', sector: 'compliance', name: 'AML / CRA / HMDA stack', claim: 'Compliance software covering the regulatory waterfront.',
+    blurb: 'AML alerts, CRA assessment reports, HMDA LAR generation — one platform, four bank clients.',
+    region: 'USA', year: '2020→', metric: '4', metricLabel: 'Banks' },
+  { id: 8, tag: 'Power Cell', sector: 'erp', name: 'Generation MIS', claim: 'Real-time generation dashboard for the national grid.',
+    blurb: 'Reads from 60+ power plants. The screen on the wall in the Power Cell control room.',
+    region: 'BD', year: '2019→', metric: '60+', metricLabel: 'Plants' },
+];
+const FILTERS = [
+  { id: 'all', label: 'All' }, { id: 'erp', label: 'ERP' }, { id: 'fintech', label: 'Fintech' },
+  { id: 'gov', label: 'Government' }, { id: 'ai', label: 'AI / health' },
+  { id: 'chain', label: 'Blockchain' }, { id: 'compliance', label: 'Compliance' },
+];
+
+function WorkGrid() {
+  const [filter, setFilter] = useState('all');
+  const cases = useMemo(() => filter === 'all' ? CASES : CASES.filter(c => c.sector === filter), [filter]);
+  return (
+    <section id="work" className="tv-section tv-work">
+      <header className="tv-section-break">
+        <span className="tv-mono tv-section-break__num">01</span>
+        <h2 className="tv-section-break__title">Work</h2>
+        <span className="tv-mono tv-section-break__meta">{CASES.length} case studies · BD + US</span>
+      </header>
+      <div className="tv-work__filters" role="tablist">
+        {FILTERS.map(f => (
+          <button key={f.id} role="tab" aria-selected={filter === f.id}
+                  className={`tv-chip-btn ${filter === f.id ? 'is-active' : ''}`}
+                  onClick={() => setFilter(f.id)}>
+            {f.label}
+            <span className="tv-mono tv-chip-btn__count">
+              {f.id === 'all' ? CASES.length : CASES.filter(c => c.sector === f.id).length}
+            </span>
+          </button>
+        ))}
+      </div>
+      <div className="tv-work__grid">
+        {cases.map(c => <CaseCard key={c.id} {...c} />)}
+      </div>
+    </section>
+  );
+}
+
+/* ── Capabilities ─────────────────────────────────────────────────── */
+function Capabilities() {
+  const rows = [
+    { n: '01', name: 'Enterprise platforms',
+      bullets: ['ERP across power utilities, governments, and large NGOs', 'On-prem deployments where required'],
+      tech: 'Java · Postgres · Spring · Kafka' },
+    { n: '02', name: 'National infrastructure',
+      bullets: ['Interoperable transaction rails (Binimoy)', 'Citizen apps for municipalities'],
+      tech: 'Go · gRPC · OAuth · ISO 20022' },
+    { n: '03', name: 'Banking compliance',
+      bullets: ['AML alerting and case management', 'CRA evaluations & HMDA LAR generation'],
+      tech: 'Python · Snowflake · Airflow' },
+    { n: '04', name: 'Blockchain & settlement',
+      bullets: ['Proxy voting infrastructure', 'NFT custody, royalties, secondary'],
+      tech: 'Solidity · Ethereum · Polygon · Hyperledger' },
+    { n: '05', name: 'Clinical AI',
+      bullets: ['Imaging models for cardiology', 'PACS-side inference, no patient data leaves the hospital'],
+      tech: 'PyTorch · DICOM · ONNX' },
+  ];
+  return (
+    <section id="do" className="tv-section tv-caps">
+      <header className="tv-section-break">
+        <span className="tv-mono tv-section-break__num">02</span>
+        <h2 className="tv-section-break__title">What we do</h2>
+        <span className="tv-mono tv-section-break__meta">five practices · one team · one shift</span>
+      </header>
+      <div className="tv-caps__list">
+        {rows.map(r => (
+          <div className="tv-caps__row" key={r.n}>
+            <span className="tv-mono tv-caps__num">{r.n}</span>
+            <div className="tv-caps__body">
+              <h3 className="tv-caps__name">{r.name}</h3>
+              <ul className="tv-caps__bullets">{r.bullets.map((b, i) => <li key={i}>{b}</li>)}</ul>
+            </div>
+            <div className="tv-caps__tech tv-mono">{r.tech}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ── ThreeAm ──────────────────────────────────────────────────────── */
+function ThreeAm() {
+  return (
+    <section id="ops" className="tv-3am">
+      <div className="tv-section">
+        <header className="tv-section-break tv-section-break--inverse">
+          <span className="tv-mono tv-section-break__num">03</span>
+          <h2 className="tv-section-break__title">Operations</h2>
+          <span className="tv-mono tv-section-break__meta">on-call · 24 / 7 · same team that shipped it</span>
+        </header>
+        <h2 className="tv-3am__claim">We answer the phone at 3am.</h2>
+        <div className="tv-3am__cols">
+          <div className="tv-3am__col">
+            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>Lifecycle</span></div>
+            <p>Requirements, architecture, code, QA, deployment, and the on-call shift when something breaks at 3am — one team, one P&amp;L.</p>
+          </div>
+          <div className="tv-3am__col">
+            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>On-call</span></div>
+            <p>Pager rotates through the engineers who shipped the system. No level-1 triage layer. Median time to first response is under four minutes.</p>
+          </div>
+          <div className="tv-3am__col">
+            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>Where we sit</span></div>
+            <p>Dhaka is on UTC+6. We cover overnight US-East from 6pm Dhaka onwards — and we are awake when the lights would otherwise go out.</p>
+          </div>
+        </div>
+        <div className="tv-3am__phone">
+          <span className="tv-mono">Pager · </span>
+          <span className="tv-3am__num">+880&nbsp;2&nbsp;—&nbsp;answered&nbsp;24/7</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ProofRow ─────────────────────────────────────────────────────── */
+function ProofRow() {
+  const clients = [
+    { name: 'Bangladesh Bank', note: 'Binimoy' },
+    { name: 'Power Division',  note: 'ERP · 15 orgs' },
+    { name: 'DNCC',            note: 'citizen app' },
+    { name: 'NCC',             note: 'imaging AI' },
+    { name: 'MLB franchise',   note: 'NFT infra' },
+    { name: 'US Banks (4)',    note: 'AML/CRA/HMDA' },
+  ];
+  return (
+    <section className="tv-proof">
+      <div className="tv-section tv-proof__inner">
+        <div className="tv-eyebrow"><span aria-hidden="true">▾</span><span>Trusted from Dhaka to Wall Street</span></div>
+        <div className="tv-proof__grid">
+          {clients.map((c, i) => (
+            <div className="tv-proof__cell" key={i}>
+              <div className="tv-proof__name">{c.name}</div>
+              <div className="tv-mono tv-proof__note">{c.note}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ContactBlock ─────────────────────────────────────────────────── */
+function ContactBlock() {
+  const [form, setForm] = useState({ name: '', email: '', org: '', project: 'erp', message: '', oncall: false });
+  const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
+  const update = (k, v) => setForm(f => ({ ...f, [k]: v }));
+  const submit = (e) => {
+    e.preventDefault();
+    const err = {};
+    if (!form.name.trim()) err.name = 'Required.';
+    if (!form.email.match(/.+@.+\..+/)) err.email = 'Need a real email.';
+    if (!form.message.trim()) err.message = 'One sentence is fine.';
+    setErrors(err);
+    if (Object.keys(err).length === 0) setSent(true);
+  };
+  if (sent) {
+    return (
+      <section id="contact" className="tv-section tv-contact">
+        <header className="tv-section-break">
+          <span className="tv-mono tv-section-break__num">04</span>
+          <h2 className="tv-section-break__title">Start a project</h2>
+        </header>
+        <div className="tv-contact__confirm">
+          <div className="tv-eyebrow"><span aria-hidden="true">▾</span><span>Received · ticket TV-{Math.floor(Math.random()*8999+1000)}</span></div>
+          <h3 className="tv-contact__confirm-title">Thanks, {form.name.split(' ')[0]}. We'll be in touch within one business day.</h3>
+          <p>If it's urgent, the pager is <span className="tv-mono">+880 2 — answered 24/7</span>.</p>
+          <button type="button" className="tv-btn tv-btn--ghost"
+                  onClick={() => { setSent(false); setForm({ name: '', email: '', org: '', project: 'erp', message: '', oncall: false }); }}>
+            Send another
+          </button>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section id="contact" className="tv-section tv-contact">
+      <header className="tv-section-break">
+        <span className="tv-mono tv-section-break__num">04</span>
+        <h2 className="tv-section-break__title">Start a project</h2>
+        <span className="tv-mono tv-section-break__meta">we read every one</span>
+      </header>
+      <div className="tv-contact__layout">
+        <div className="tv-contact__left">
+          <h3 className="tv-contact__pitch">If it has to work,<br/>we want to build it.</h3>
+          <p className="tv-contact__sub">One sentence about what you need is enough to start. We'll reply with a real engineer, not a sales rep.</p>
+          <div className="tv-contact__addr">
+            <div><span className="tv-mono">Dhaka</span><br/>House 42, Road 11, Banani</div>
+            <div><span className="tv-mono">New York</span><br/>By appointment · Midtown</div>
+          </div>
+        </div>
+        <form className="tv-contact__form" onSubmit={submit} noValidate>
+          <div className="tv-field">
+            <label htmlFor="cn">Name</label>
+            <input id="cn" type="text" value={form.name} onChange={e => update('name', e.target.value)} aria-invalid={!!errors.name} />
+            {errors.name && <span className="tv-field__error">{errors.name}</span>}
+          </div>
+          <div className="tv-field">
+            <label htmlFor="ce">Email</label>
+            <input id="ce" type="email" value={form.email} onChange={e => update('email', e.target.value)} aria-invalid={!!errors.email} />
+            {errors.email && <span className="tv-field__error">{errors.email}</span>}
+          </div>
+          <div className="tv-field">
+            <label htmlFor="co">Organisation</label>
+            <input id="co" type="text" value={form.org} onChange={e => update('org', e.target.value)} placeholder="optional" />
+          </div>
+          <div className="tv-field">
+            <label htmlFor="cp">What needs to work</label>
+            <select id="cp" value={form.project} onChange={e => update('project', e.target.value)}>
+              <option value="erp">ERP / back-office</option>
+              <option value="compliance">Banking compliance</option>
+              <option value="chain">Blockchain / settlement</option>
+              <option value="ai">Clinical AI</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div className="tv-field tv-field--wide">
+            <label htmlFor="cm">One sentence is fine.</label>
+            <textarea id="cm" rows="3" value={form.message} onChange={e => update('message', e.target.value)} aria-invalid={!!errors.message} />
+            {errors.message && <span className="tv-field__error">{errors.message}</span>}
+          </div>
+          <label className="tv-checkbox tv-field--wide">
+            <input type="checkbox" checked={form.oncall} onChange={e => update('oncall', e.target.checked)} />
+            <span className="tv-checkbox__box" aria-hidden="true"><span /></span>
+            <span>I need on-call coverage included</span>
+          </label>
+          <div className="tv-field--wide tv-contact__submit">
+            <button className="tv-btn tv-btn--primary" type="submit">Send <span aria-hidden="true">→</span></button>
+            <span className="tv-mono tv-contact__hint">We reply within one business day.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer id="company" className="tv-footer">
+      <div className="tv-section tv-footer__inner">
+        <div className="tv-footer__top">
+          <img src={ASSETS + 'techvision-wordmark-white.png'} alt="techvision" className="tv-footer__wm" />
+          <p className="tv-footer__claim">We build the kind of software that&nbsp;can't go down.</p>
+        </div>
+        <div className="tv-footer__cols">
+          <div className="tv-footer__col">
+            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Work</div>
+            <ul>
+              <li><a href="#work">Power Sector ERP</a></li>
+              <li><a href="#work">Binimoy IDTP</a></li>
+              <li><a href="#work">DNCC citizen app</a></li>
+              <li><a href="#work">Proxy voting on chain</a></li>
+            </ul>
+          </div>
+          <div className="tv-footer__col">
+            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>What we do</div>
+            <ul>
+              <li><a href="#do">Enterprise platforms</a></li>
+              <li><a href="#do">National infrastructure</a></li>
+              <li><a href="#do">Banking compliance</a></li>
+              <li><a href="#do">Blockchain &amp; settlement</a></li>
+              <li><a href="#do">Clinical AI</a></li>
+            </ul>
+          </div>
+          <div className="tv-footer__col">
+            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Company</div>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Writing</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press kit</a></li>
+            </ul>
+          </div>
+          <div className="tv-footer__col">
+            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Reach us</div>
+            <ul>
+              <li><a href="mailto:hello@techvision.com.bd">hello@techvision.com.bd</a></li>
+              <li><span className="tv-mono">+880 2 — 24/7 on-call</span></li>
+              <li>House 42, Road 11, Banani, Dhaka</li>
+              <li>By appointment · Midtown, NYC</li>
+            </ul>
+          </div>
+        </div>
+        <div className="tv-footer__base">
+          <span className="tv-mono">© {year} TechVision Ltd</span>
+          <span className="tv-mono"><span className="tv-status-dot tv-status-dot--ok" /> All systems · 99.997%</span>
+          <span className="tv-mono">Dhaka · UTC+6 · awake</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ── App ──────────────────────────────────────────────────────────── */
+function App() {
+  const [active, setActive] = useState('top');
+  useEffect(() => {
+    const ids = ['work', 'do', 'ops', 'company'];
+    const els = ids.map(id => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => { for (const e of entries) { if (e.isIntersecting) setActive(e.target.id); } },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const onClick = (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (href.length < 2) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+  return (
+    <React.Fragment>
+      <Header activeSection={active} />
+      <Hero />
+      <StatusTicker />
+      <WorkGrid />
+      <Capabilities />
+      <ThreeAm />
+      <ProofRow />
+      <ContactBlock />
+      <Footer />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+</script>
+</body>
+</html>
