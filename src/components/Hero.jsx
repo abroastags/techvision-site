@@ -8,7 +8,7 @@ export default function Hero() {
           <span>Dhaka · est. 2009 · still on-call</span>
         </div>
         <h1 className="tv-hero__claim">
-          Built like a city<br />runs on it.
+          Built like a country<br />runs on it.
         </h1>
         <div className="tv-hero__proof">
           <p>
