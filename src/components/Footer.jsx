@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="tv-footer__cols">
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Work</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Work</div>
             <ul>
               <li><a href="#work">Power Sector ERP</a></li>
               <li><a href="#work">Binimoy IDTP</a></li>
@@ -23,7 +23,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>What we do</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">What we do</div>
             <ul>
               <li><a href="#do">Enterprise platforms</a></li>
               <li><a href="#do">National infrastructure</a></li>
@@ -33,7 +33,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Company</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Company</div>
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="#">Writing</a></li>
@@ -42,7 +42,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Reach us</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Reach us</div>
             <ul>
               <li><a href="mailto:hello@techvision.com.bd">hello@techvision.com.bd</a></li>
               <li><span className="tv-mono">+880 2 — 24/7 on-call</span></li>

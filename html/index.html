@@ -66,8 +66,7 @@ function Hero() {
       <div className="tv-hero__grid" aria-hidden="true" />
       <div className="tv-section">
         <div className="tv-eyebrow tv-hero__eyebrow">
-          <span aria-hidden="true">▾</span>
-          <span>Dhaka · est. 2009 · still on-call</span>
+          Dhaka · est. 2009 · still on-call
         </div>
         <h1 className="tv-hero__claim">
           Built like a city<br/>runs on it.
@@ -120,8 +119,7 @@ function CaseCard({ tag, name, claim, blurb, region, year, metric, metricLabel }
   return (
     <article className="tv-case">
       <div className="tv-eyebrow tv-case__eyebrow">
-        <span aria-hidden="true">▾</span>
-        <span>{tag}</span>
+        {tag}
       </div>
       <h3 className="tv-case__title">{name}</h3>
       <p className="tv-case__claim">{claim}</p>
@@ -251,15 +249,15 @@ function ThreeAm() {
         <h2 className="tv-3am__claim">We answer the phone at 3am.</h2>
         <div className="tv-3am__cols">
           <div className="tv-3am__col">
-            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>Lifecycle</span></div>
+            <div className="tv-eyebrow tv-3am__eyebrow">Lifecycle</div>
             <p>Requirements, architecture, code, QA, deployment, and the on-call shift when something breaks at 3am — one team, one P&amp;L.</p>
           </div>
           <div className="tv-3am__col">
-            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>On-call</span></div>
+            <div className="tv-eyebrow tv-3am__eyebrow">On-call</div>
             <p>Pager rotates through the engineers who shipped the system. No level-1 triage layer. Median time to first response is under four minutes.</p>
           </div>
           <div className="tv-3am__col">
-            <div className="tv-eyebrow tv-3am__eyebrow"><span aria-hidden="true">▾</span><span>Where we sit</span></div>
+            <div className="tv-eyebrow tv-3am__eyebrow">Where we sit</div>
             <p>Dhaka is on UTC+6. We cover overnight US-East from 6pm Dhaka onwards — and we are awake when the lights would otherwise go out.</p>
           </div>
         </div>
@@ -285,7 +283,7 @@ function ProofRow() {
   return (
     <section className="tv-proof">
       <div className="tv-section tv-proof__inner">
-        <div className="tv-eyebrow"><span aria-hidden="true">▾</span><span>Trusted from Dhaka to Wall Street</span></div>
+        <div className="tv-eyebrow">Trusted from Dhaka to Wall Street</div>
         <div className="tv-proof__grid">
           {clients.map((c, i) => (
             <div className="tv-proof__cell" key={i}>
@@ -322,7 +320,7 @@ function ContactBlock() {
           <h2 className="tv-section-break__title">Start a project</h2>
         </header>
         <div className="tv-contact__confirm">
-          <div className="tv-eyebrow"><span aria-hidden="true">▾</span><span>Received · ticket TV-{Math.floor(Math.random()*8999+1000)}</span></div>
+          <div className="tv-eyebrow">Received · ticket TV-{Math.floor(Math.random()*8999+1000)}</div>
           <h3 className="tv-contact__confirm-title">Thanks, {form.name.split(' ')[0]}. We'll be in touch within one business day.</h3>
           <p>If it's urgent, the pager is <span className="tv-mono">+880 2 — answered 24/7</span>.</p>
           <button type="button" className="tv-btn tv-btn--ghost"
@@ -406,7 +404,7 @@ function Footer() {
         </div>
         <div className="tv-footer__cols">
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Work</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Work</div>
             <ul>
               <li><a href="#work">Power Sector ERP</a></li>
               <li><a href="#work">Binimoy IDTP</a></li>
@@ -415,7 +413,7 @@ function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>What we do</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">What we do</div>
             <ul>
               <li><a href="#do">Enterprise platforms</a></li>
               <li><a href="#do">National infrastructure</a></li>
@@ -425,7 +423,7 @@ function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Company</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Company</div>
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="#">Writing</a></li>
@@ -434,7 +432,7 @@ function Footer() {
             </ul>
           </div>
           <div className="tv-footer__col">
-            <div className="tv-eyebrow tv-footer__eyebrow"><span aria-hidden="true">▾</span>Reach us</div>
+            <div className="tv-eyebrow tv-footer__eyebrow">Reach us</div>
             <ul>
               <li><a href="mailto:hello@techvision.com.bd">hello@techvision.com.bd</a></li>
               <li><span className="tv-mono">+880 2 — 24/7 on-call</span></li>

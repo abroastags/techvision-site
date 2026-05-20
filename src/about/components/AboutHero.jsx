@@ -3,10 +3,7 @@ export default function AboutHero() {
     <section id="top" className="tv-hero about-hero">
       <div className="tv-hero__grid" aria-hidden="true" />
       <div className="tv-section">
-        <div className="tv-eyebrow tv-hero__eyebrow">
-          <span aria-hidden="true">▾</span>
-          <span>About · Dhaka · est. 2009 · still on-call</span>
-        </div>
+        <div className="tv-eyebrow tv-hero__eyebrow">About · Dhaka · est. 2009 · still on-call</div>
         <h1 className="tv-hero__claim about-hero__claim">
           We build the systems<br />other systems depend on.
         </h1>

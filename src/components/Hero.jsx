@@ -3,10 +3,7 @@ export default function Hero() {
     <section id="top" className="tv-hero">
       <div className="tv-hero__grid" aria-hidden="true" />
       <div className="tv-section">
-        <div className="tv-eyebrow tv-hero__eyebrow">
-          <span aria-hidden="true">▾</span>
-          <span>Dhaka · est. 2009 · still on-call</span>
-        </div>
+        <div className="tv-eyebrow tv-hero__eyebrow">Dhaka · est. 2009 · still on-call</div>
         <h1 className="tv-hero__claim">
           Built like a country<br />runs on it.
         </h1>

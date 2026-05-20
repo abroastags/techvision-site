@@ -37,15 +37,12 @@ export default function AboutContact() {
             We read every message and reply within one business day. P0 wakes the on-call rota.
           </p>
           <p className="about-contact__sub tv-mono">
-            ▾ Hiring? Send your CV to the same address with subject line "engineering".
+            Hiring? Send your CV to the same address with subject line "engineering".
           </p>
         </div>
 
         <div className="about-contact__card">
-          <span className="tv-eyebrow about-contact__label">
-            <span aria-hidden="true">▾</span>
-            <span>Placeholder email · update before launch</span>
-          </span>
+          <span className="tv-eyebrow about-contact__label">Placeholder email · update before launch</span>
 
           <a href={mailto} className="about-contact__email">
             {EMAIL}

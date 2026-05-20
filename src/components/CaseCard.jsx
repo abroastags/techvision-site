@@ -1,10 +1,7 @@
 export default function CaseCard({ tag, name, claim, blurb, region, year, metric, metricLabel }) {
   return (
     <article className="tv-case">
-      <div className="tv-eyebrow tv-case__eyebrow">
-        <span aria-hidden="true">▾</span>
-        <span>{tag}</span>
-      </div>
+      <div className="tv-eyebrow tv-case__eyebrow">{tag}</div>
       <h3 className="tv-case__title">{name}</h3>
       <p className="tv-case__claim">{claim}</p>
       <p className="tv-case__blurb">{blurb}</p>

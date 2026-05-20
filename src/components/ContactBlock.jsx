@@ -43,7 +43,7 @@ export default function ContactBlock() {
           <h2 className="tv-section-break__title">Start a project</h2>
         </header>
         <div className="tv-contact__confirm">
-          <div className="tv-eyebrow"><span aria-hidden="true">▾</span><span>Received · ticket TV-{TICKET_BASE}</span></div>
+          <div className="tv-eyebrow">Received · ticket TV-{TICKET_BASE}</div>
           <h3 className="tv-contact__confirm-title">Thanks, {form.name.split(' ')[0]}. We'll be in touch within one business day.</h3>
           <p>If it's urgent, the pager is <span className="tv-mono">+880 2 — answered 24/7</span>.</p>
           <button type="button" className="tv-btn tv-btn--ghost"

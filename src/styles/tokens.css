@@ -170,6 +170,37 @@
   --grid-cols: 12;
 }
 
+/* =====================================================================
+   Night mode — semantic surfaces (brand blues stay the same)
+   ===================================================================== */
+[data-theme="dark"] {
+  --fg-1:           #F1F5F9;
+  --fg-2:           #94A3B8;
+  --fg-3:           #64748B;
+  --fg-mute:        #475569;
+
+  --bg-1:           var(--tv-ink);
+  --bg-2:           #111827;
+  --bg-3:           var(--tv-navy-700);
+  --bg-inverse:     var(--tv-navy-50);
+  --bg-blue:        var(--tv-blue);
+
+  --tv-paper:       #131B2E;
+  --tv-paper-2:     #1A2540;
+
+  --border-1:       rgba(255, 255, 255, 0.1);
+  --border-2:       var(--tv-navy-600);
+  --border-strong:  var(--tv-navy-300);
+
+  --shadow-1: 0 1px 0 0 rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(0, 0, 0, 0.25);
+  --shadow-3: 0 8px 24px -8px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-inset-hair: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --ring-focus: 0 0 0 3px rgba(142, 168, 220, 0.35);
+}
+
+[data-theme="dark"] a:hover { color: var(--tv-blue-200); }
+
 /* ============================================================
    SEMANTIC ELEMENT STYLES
    Authors can drop in stock markup and have it look on-brand.
