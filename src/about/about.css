@@ -156,10 +156,40 @@
 
 /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
 @media (max-width: 880px) {
-  .about-hero__proof          { grid-template-columns: 1fr; gap: 24px; }
-  .about-story__item          { grid-template-columns: 80px 1fr; gap: 16px; }
+  .about-hero                 { padding: 56px 0 48px; }
+  .about-hero__claim          { margin-bottom: 32px; }
+  .about-hero__proof          { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+
+  .about-story                { padding: 48px 0 24px; }
+  .about-story__intro         { margin: 0 0 24px; }
+  .about-story__item          { grid-template-columns: 72px 1fr; gap: 16px; padding: 20px 0; }
+  .about-story__title         { font-size: 21px; }
+
+  .about-numbers              { padding: 48px 0; }
   .about-numbers__grid        { grid-template-columns: repeat(2, 1fr); }
-  .about-principles__row      { grid-template-columns: 48px 1fr; gap: 16px; }
+  .about-numbers__cell        { padding: 22px 18px 18px; }
+  .about-numbers__value       { font-size: 32px; }
+
+  .about-principles           { padding: 48px 0; }
+  .about-principles__row      { grid-template-columns: 40px 1fr; gap: 16px; padding: 22px 0; }
+  .about-principles__name     { font-size: 22px; }
+
+  .about-contact              { padding: 56px 0 64px; }
   .about-contact__layout      { grid-template-columns: 1fr; gap: 32px; }
-  .about-contact__meta        { grid-template-columns: 1fr; }
+  .about-contact__card        { padding: 22px; gap: 16px; }
+  .about-contact__email       { font-size: 1.5rem; }
+  .about-contact__actions     { width: 100%; }
+  .about-contact__actions a,
+  .about-contact__actions button { flex: 1; justify-content: center; }
+  .about-contact__meta        { grid-template-columns: 1fr; gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .about-hero                 { padding: 40px 0 32px; }
+  .about-story__item          { grid-template-columns: 56px 1fr; gap: 12px; }
+  .about-numbers__cell        { padding: 18px 14px; }
+  .about-numbers__value       { font-size: 28px; }
+  .about-principles__row      { grid-template-columns: 32px 1fr; gap: 12px; }
+  .about-contact__card        { padding: 18px; }
+  .about-contact__email       { font-size: 1.25rem; }
 }

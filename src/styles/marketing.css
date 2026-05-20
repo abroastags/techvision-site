@@ -339,21 +339,71 @@ img { max-width: 100%; display: block; }
 .tv-footer__base .tv-mono { display: inline-flex; align-items: center; gap: 8px; }
 
 /* =========================================================================
-   Mobile (single column) — light pass
+   Tablet — shrink the page gutter, reflow grids to one column
    ========================================================================= */
 @media (max-width: 880px) {
+  :root { --layout-gutter: 24px; }
+
+  .tv-nav { gap: 16px; padding: 14px var(--layout-gutter); }
   .tv-nav__links { display: none; }
   .tv-nav__status { display: none; }
-  .tv-hero__proof { grid-template-columns: 1fr; }
-  .tv-hero__actions { justify-content: flex-start; }
+  .tv-nav__brand { font-size: 22px; }
+  .tv-nav__brand img { width: 36px; height: 36px; }
+
+  .tv-section-break { grid-template-columns: 40px 1fr auto; column-gap: 16px; margin-bottom: 24px; }
+
+  .tv-hero { padding: 56px 0 48px; }
+  .tv-hero__eyebrow { margin-bottom: 20px; }
+  .tv-hero__claim { margin-bottom: 32px; }
+  .tv-hero__proof { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+  .tv-hero__actions { justify-content: flex-start; flex-wrap: wrap; }
+
+  .tv-work { padding: 48px 0 24px; }
   .tv-work__grid { grid-template-columns: 1fr; }
-  .tv-caps__row { grid-template-columns: 48px 1fr; }
+  .tv-case { padding: 20px; min-height: 0; }
+
+  .tv-caps { padding: 48px 0; }
+  .tv-caps__row { grid-template-columns: 40px 1fr; gap: 16px; }
   .tv-caps__tech { grid-column: 2 / -1; text-align: left; padding-top: 6px; }
-  .tv-3am__cols { grid-template-columns: 1fr; }
+
+  .tv-3am { padding: 56px 0; }
+  .tv-3am__claim { margin: 8px 0 32px; }
+  .tv-3am__cols { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+  .tv-3am__phone { padding: 12px 16px; }
+
+  .tv-proof { padding: 40px 0; }
   .tv-proof__grid { grid-template-columns: repeat(2, 1fr); }
+  .tv-proof__cell { padding: 18px 14px; }
+
+  .tv-contact { padding: 56px 0; }
   .tv-contact__layout { grid-template-columns: 1fr; gap: 32px; }
   .tv-contact__form { grid-template-columns: 1fr; }
-  .tv-footer__cols { grid-template-columns: repeat(2, 1fr); }
-  .tv-footer__top { flex-direction: column; align-items: flex-start; }
+  .tv-contact__addr { grid-template-columns: 1fr; gap: 12px; }
+
+  .tv-footer { padding: 56px 0 24px; }
+  .tv-footer__top { flex-direction: column; align-items: flex-start; gap: 20px; padding-bottom: 32px; margin-bottom: 32px; }
   .tv-footer__claim { text-align: left; }
+  .tv-footer__cols { grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 40px; }
+  .tv-footer__base { flex-direction: column; gap: 8px; }
+}
+
+/* =========================================================================
+   Small mobile — phone-tight gutter, drop secondary text
+   ========================================================================= */
+@media (max-width: 480px) {
+  :root { --layout-gutter: 16px; }
+
+  .tv-nav { gap: 8px; }
+  .tv-nav__brand { font-size: 20px; }
+  .tv-nav__brand span { display: none; }
+
+  .tv-section-break { grid-template-columns: 32px 1fr; column-gap: 12px; }
+  .tv-section-break__meta { display: none; }
+
+  .tv-hero { padding: 40px 0 32px; }
+
+  .tv-caps__row { grid-template-columns: 32px 1fr; gap: 12px; }
+
+  .tv-3am__phone { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tv-3am__num { font-size: 20px; }
 }
