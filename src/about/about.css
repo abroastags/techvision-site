@@ -24,7 +24,7 @@
 }
 
 /* ── STORY ─────────────────────────────────────────────────────────────── */
-.about-story { padding: 64px 0 32px; }
+.about-story { padding-block: 64px 32px; }
 .about-story__intro { max-width: 44ch; margin: 0 0 40px; }
 
 .about-story__list { list-style: none; margin: 0; padding: 0; }
@@ -50,7 +50,7 @@
 }
 
 /* ── BY THE NUMBERS ───────────────────────────────────────────────────── */
-.about-numbers { padding: 64px 0; }
+.about-numbers { padding-block: 64px; }
 .about-numbers__grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
   border-top: 1px solid var(--border-1);
@@ -76,7 +76,7 @@
 }
 
 /* ── PRINCIPLES ───────────────────────────────────────────────────────── */
-.about-principles { padding: 64px 0; background: var(--tv-paper); }
+.about-principles { padding-block: 64px; background: var(--tv-paper); }
 .about-principles__list { display: flex; flex-direction: column; }
 .about-principles__row {
   display: grid; grid-template-columns: 64px 1fr;
@@ -100,7 +100,7 @@
 }
 
 /* ── CONTACT (placeholder email) ──────────────────────────────────────── */
-.about-contact { padding: 80px 0 96px; }
+.about-contact { padding-block: 80px 96px; }
 .about-contact__layout {
   display: grid; grid-template-columns: 5fr 7fr;
   gap: 48px; align-items: start;
@@ -160,21 +160,21 @@
   .about-hero__claim          { margin-bottom: 32px; }
   .about-hero__proof          { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
 
-  .about-story                { padding: 48px 0 24px; }
+  .about-story                { padding-block: 48px 24px; }
   .about-story__intro         { margin: 0 0 24px; }
   .about-story__item          { grid-template-columns: 72px 1fr; gap: 16px; padding: 20px 0; }
   .about-story__title         { font-size: 21px; }
 
-  .about-numbers              { padding: 48px 0; }
+  .about-numbers              { padding-block: 48px; }
   .about-numbers__grid        { grid-template-columns: repeat(2, 1fr); }
   .about-numbers__cell        { padding: 22px 18px 18px; }
   .about-numbers__value       { font-size: 32px; }
 
-  .about-principles           { padding: 48px 0; }
+  .about-principles           { padding-block: 48px; }
   .about-principles__row      { grid-template-columns: 40px 1fr; gap: 16px; padding: 22px 0; }
   .about-principles__name     { font-size: 22px; }
 
-  .about-contact              { padding: 56px 0 64px; }
+  .about-contact              { padding-block: 56px 64px; }
   .about-contact__layout      { grid-template-columns: 1fr; gap: 32px; }
   .about-contact__card        { padding: 22px; gap: 16px; }
   .about-contact__email       { font-size: 1.5rem; }
