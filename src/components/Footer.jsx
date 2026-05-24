@@ -46,7 +46,7 @@ export default function Footer() {
             <ul>
               <li><a href="mailto:hello@techvision.com.bd">hello@techvision.com.bd</a></li>
               <li><span className="tv-mono">+880 2 — 24/7 on-call</span></li>
-              <li>House 42, Road 11, Banani, Dhaka</li>
+              <li>DOM-INNO PROPERTIES (Level 3), House # 18, Road # 06, Gulshan-1, Dhaka 1212, Bangladesh</li>
               <li>By appointment · Midtown, NYC</li>
             </ul>
           </div>

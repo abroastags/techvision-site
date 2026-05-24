@@ -68,7 +68,12 @@ export default function ContactBlock() {
           <h3 className="tv-contact__pitch">If it has to work,<br />we want to build it.</h3>
           <p className="tv-contact__sub">One sentence about what you need is enough to start. We'll reply with a real engineer, not a sales rep.</p>
           <div className="tv-contact__addr">
-            <div><span className="tv-mono">Dhaka</span><br />House 42, Road 11, Banani</div>
+            <div>
+              <span className="tv-mono">Dhaka</span><br />
+              DOM-INNO PROPERTIES (Level 3)<br />
+              House # 18, Road # 06<br />
+              Gulshan-1, Dhaka 1212, Bangladesh
+            </div>
             <div><span className="tv-mono">New York</span><br />By appointment · Midtown</div>
           </div>
         </div>

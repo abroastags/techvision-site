@@ -60,7 +60,7 @@ export default function AboutContact() {
           <div className="about-contact__meta tv-mono">
             <div>
               <span className="about-contact__meta-l">Dhaka HQ</span>
-              <span>House 42, Road 11, Banani</span>
+              <span>DOM-INNO PROPERTIES (Level 3), House # 18, Road # 06, Gulshan-1, Dhaka 1212, Bangladesh</span>
             </div>
             <div>
               <span className="about-contact__meta-l">New York</span>
