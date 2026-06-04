@@ -231,7 +231,7 @@ body { background: var(--fn-bg); }
   .fn-hero__cta-stack { align-items: flex-start; }
 }
 
-.fn-magnet {
+.dir-future .fn-magnet {
   --mag-x: 0px; --mag-y: 0px;
   position: relative;
   display: inline-flex; align-items: center; gap: 14px;
@@ -254,14 +254,14 @@ body { background: var(--fn-bg); }
   color: var(--fn-lime);
   font-weight: 700;
 }
-.fn-magnet:hover { background: #fff; }
-.fn-magnet--ghost {
+.dir-future .fn-magnet:hover { background: #fff; color: var(--fn-bg); }
+.dir-future .fn-magnet--ghost {
   background: transparent; color: var(--fn-fg);
   border: 1px solid var(--fn-hair-2);
 }
-.fn-magnet--ghost:hover { background: var(--fn-fg); color: var(--fn-bg); }
-.fn-magnet--ghost .fn-magnet__arrow { background: var(--fn-fg); color: var(--fn-bg); }
-.fn-magnet--ghost:hover .fn-magnet__arrow { background: var(--fn-bg); color: var(--fn-fg); }
+.dir-future .fn-magnet--ghost:hover { background: var(--fn-fg); color: var(--fn-bg); }
+.dir-future .fn-magnet--ghost .fn-magnet__arrow { background: var(--fn-fg); color: var(--fn-bg); }
+.dir-future .fn-magnet--ghost:hover .fn-magnet__arrow { background: var(--fn-bg); color: var(--fn-fg); }
 
 .fn-hero__telemetry {
   display: flex; flex-wrap: wrap; gap: 4px;
@@ -293,7 +293,7 @@ body { background: var(--fn-bg); }
 /* ── Marquee strip ──────────────────────────────────────────── */
 .fn-marquee {
   position: relative;
-  padding: clamp(28px, 5vw, 56px) 0;
+  padding: clamp(12px, 2vw, 24px) 0;
   border-top: 1px solid var(--fn-hair);
   border-bottom: 1px solid var(--fn-hair);
   overflow: clip;
@@ -302,7 +302,7 @@ body { background: var(--fn-bg); }
 }
 .fn-marquee--lime { background: var(--fn-lime); color: var(--fn-bg); border-color: transparent; }
 .fn-marquee__track {
-  display: inline-flex; gap: 56px;
+  display: inline-flex; gap: 32px;
   animation: fn-scroll 38s linear infinite;
   will-change: transform;
 }
@@ -311,14 +311,14 @@ body { background: var(--fn-bg); }
 .fn-marquee__item {
   font-family: var(--fn-font);
   font-weight: 600;
-  font-size: clamp(36px, 7vw, 96px);
-  letter-spacing: -0.035em;
+  font-size: clamp(18px, 3.6vw, 44px);
+  letter-spacing: -0.03em;
   color: var(--fn-fg);
-  display: inline-flex; align-items: center; gap: 24px;
+  display: inline-flex; align-items: center; gap: 14px;
 }
 .fn-marquee--lime .fn-marquee__item { color: var(--fn-bg); }
 .fn-marquee__item-dot {
-  width: clamp(8px, 1vw, 14px); height: clamp(8px, 1vw, 14px); border-radius: 50%;
+  width: clamp(5px, 0.6vw, 8px); height: clamp(5px, 0.6vw, 8px); border-radius: 50%;
   background: var(--fn-lime); display: inline-block;
 }
 .fn-marquee--lime .fn-marquee__item-dot { background: var(--fn-bg); }
