@@ -306,7 +306,7 @@ function FutureHero() {
         <div className="fn-hero__telemetry">
           <div className="fn-hero__tel">
             <span className="fn-hero__tel-n fn-hero__tel-n--lime">{txCount.toLocaleString()}</span>
-            <span className="fn-hero__tel-l">Transactions settled on Binimoy today</span>
+            <span className="fn-hero__tel-l">Transactions settled on IDTP today</span>
           </div>
           <div className="fn-hero__tel">
             <span className="fn-hero__tel-n">99.99<span style={{ color: 'var(--fn-fg-3)' }}>%</span></span>
@@ -347,7 +347,7 @@ export function Marquee({ items, variant, reverse }) {
 /* ── Bento ──────────────────────────────────────────────────── */
 const TILES = [
   {
-    id: 'binimoy', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
+    id: 'idtp', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
     claim: 'The national interoperable digital transaction platform. Every bank, MFS and wallet in Bangladesh settling against each other, in real time.',
     metric: '180M+', metricLabel: 'eligible account holders',
     sla: '99.99%', region: 'Dhaka · DAC', sector: 'Fintech · public infrastructure',
@@ -411,7 +411,7 @@ function FutureSystems() {
     return () => clearInterval(id);
   }, []);
 
-  const liveBinimoy = (184_213_540 + tick * 38).toLocaleString();
+  const liveIdtp = (184_213_540 + tick * 38).toLocaleString();
 
   return (
     <section className="fn-section" id="work">
@@ -427,7 +427,7 @@ function FutureSystems() {
         </div>
 
         <div className="fn-bento">
-          <FnTile size="lg" tile={{ ...TILES[0], liveMetric: liveBinimoy, metricLabel: 'transactions settled today · live' }} />
+          <FnTile size="lg" tile={{ ...TILES[0], liveMetric: liveIdtp, metricLabel: 'transactions settled today · live' }} />
           <FnTile size="md" tile={TILES[1]} />
           <FnTile size="md" tile={TILES[2]} />
           <FnTile size="sm" tile={TILES[3]} />
@@ -536,7 +536,7 @@ function FutureCTA() {
 
 /* ── Footer ─────────────────────────────────────────────────── */
 const FOOTER_LINKS = {
-  Work:     ['Binimoy', 'Power Division ERP', 'DNCC', 'NCC imaging', 'Proxy voting', 'MLB NFT', 'Bank compliance'],
+  Work:     ['IDTP', 'Power Division ERP', 'DNCC', 'NCC imaging', 'Proxy voting', 'MLB NFT', 'Bank compliance'],
   Practice: ['Mission-critical', 'Compliance', 'Blockchain', 'Hospital AI', 'Government', 'On-call ops'],
   Company:  ['Engineering', 'Careers', 'Press', 'Contact'],
 };
@@ -574,7 +574,7 @@ export function FutureFooter() {
 
 /* ── Root ───────────────────────────────────────────────────── */
 const TICKER_A = [
-  { text: 'Binimoy · 184,213,540 settled · uptime 99.99%',     icon: '/assets/icons/finance.png' },
+  { text: 'IDTP · 184,213,540 settled · uptime 99.99%',        icon: '/assets/icons/finance.png' },
   { text: 'NCC AI · 1.4s inference · 412 studies / day',       icon: '/assets/icons/performance.png', outline: true },
   { text: 'Power ERP · 15 orgs · v6.4.0',                      icon: '/assets/icons/plant.png' },
   { text: 'DNCC · 4.5M residents · v3.2.4',                    icon: '/assets/icons/admin.png',       outline: true },

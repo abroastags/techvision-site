@@ -24,55 +24,55 @@ const CLIENT_LOGOS = [
 ];
 
 const PROJECTS = [
-  { id: 'binimoy', icon: '/assets/icons/finance.png',
-    tag: 'FINTECH · NATIONAL', name: 'Binimoy / IDTP', status: 'LIVE',
+  { id: 'idtp', icon: '/assets/icons/finance.png',
+    tag: 'FINTECH · NATIONAL', name: 'IDTP', status: 'LIVE',
     claim: 'The interoperable digital transaction platform — every bank, MFS and wallet in Bangladesh settling against each other in real time.',
     client: 'Bangladesh Bank · public infrastructure',
     metric: '184M+', metricLabel: 'eligible account holders',
     feature: true,
     spark: [40, 55, 48, 68, 62, 78, 72, 88, 80, 92, 84, 96],
   },
-  { id: 'ncc-ai', icon: '/assets/icons/performance.png',
+  { id: 'ncc-ai', logo: '/assets/logos/nicvd.png',
     tag: 'HEALTHCARE AI', name: 'NCC cardiac AI', status: 'LIVE',
     claim: 'On-prem cardiac imaging assist for the National Institute of Cardiovascular Diseases. Flags abnormalities for the radiologist on shift.',
     client: 'NICVD · clinical-grade',
     metric: '<2s', metricLabel: 'inference per study',
     bar: 87,
   },
-  { id: 'dncc', icon: '/assets/icons/admin.png',
+  { id: 'dncc', logo: '/assets/logos/dncc.png',
     tag: 'CIVIC · DHAKA NORTH', name: 'DNCC citizen app', status: 'LIVE',
     claim: 'Taxes, trade licences and complaints — what was a counter in an office is now a phone in a pocket for 4.5M residents.',
     client: 'Dhaka North City Corporation',
     metric: '4.5M', metricLabel: 'residents served',
     spark: [30, 42, 50, 45, 60, 58, 68, 72, 65, 80, 85, 78],
   },
-  { id: 'proxy', icon: '/assets/icons/tender.png',
+  { id: 'proxy', logo: '/assets/logos/nuarca.png',
     tag: 'BLOCKCHAIN · US', name: 'Proxy voting · on chain', status: 'LIVE',
     claim: 'Annual meetings settle in minutes, not weeks. The audit trail is the chain.',
-    client: 'Nuarca · 2nd-largest US shareholder firm',
+    client: 'NuArca · 2nd-largest US shareholder firm',
     metric: '9 min', metricLabel: 'meeting settlement',
   },
-  { id: 'mlb', icon: '/assets/icons/hr.png',
+  { id: 'mlb', logo: '/assets/logos/mlb.png',
     tag: 'SPORTS · BLOCKCHAIN', name: 'MLB NFT infrastructure', status: 'LIVE',
     claim: 'Drops, secondaries, royalties and fan identity for a Major League Baseball franchise.',
     client: 'MLB franchise',
     metric: 'Game-day', metricLabel: 'on-chain · live during drops',
     bar: 64,
   },
-  { id: 'aml', icon: '/assets/icons/procurement.png',
+  { id: 'aml', logo: '/assets/logos/wolters-kluwer.png',
     tag: 'BANKING · COMPLIANCE', name: 'AML · CRA · HMDA', status: 'LIVE',
     claim: 'Anti-Money-Laundering, Community Reinvestment Act and Home Mortgage Disclosure Act reporting for US banks.',
     client: 'Wolters Kluwer · Empyrean Solutions',
     metric: '3 acts', metricLabel: 'AML · CRA · HMDA',
     spark: [22, 28, 35, 30, 42, 48, 40, 55, 50, 62, 58, 70],
   },
-  { id: 'bu', icon: '/assets/icons/admin.png',
+  { id: 'bu', logo: '/assets/logos/bangladesh-university.png',
     tag: 'EDUCATION', name: 'Bangladesh University systems', status: 'LIVE',
     claim: 'Academic & operational platform — admissions, results, finance and HR for a private university.',
     client: 'Bangladesh University',
     metric: 'Multi-year', metricLabel: 'in production',
   },
-  { id: 'vsbl', icon: '/assets/icons/plant.png',
+  { id: 'vsbl', logo: '/assets/logos/vitti-sthapati-brindo.png',
     tag: 'ARCHITECTURE', name: 'Vitti Sthapati Brindo platform', status: 'LIVE',
     claim: 'Practice-management systems for one of Bangladesh’s leading architecture firms.',
     client: 'Vitti Sthapati Brindo Ltd',
@@ -136,10 +136,6 @@ export default function Projects() {
 
       {/* ── Client logo marquee ─────────────────────────────── */}
       <section className="fn-logobar" aria-label="Other clients">
-        <div className="fn-logobar__head">
-          <h2 className="fn-logobar__eyebrow">▾ OTHER CLIENTS · NATIONAL + INTERNATIONAL</h2>
-          <span className="fn-logobar__meta">8 BRANDS · ALWAYS SCROLLING</span>
-        </div>
         <div className="fn-logobar__track-wrap">
           <div className="fn-logobar__track">
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((l, i) => (
@@ -167,11 +163,15 @@ export default function Projects() {
           <div className="fn-bento">
             {PROJECTS.map((p, i) => (
               <article key={p.id} className={`fn-tile fn-tile--${i === 0 ? 'lg' : i < 3 ? 'md' : i < 6 ? 'sm' : 'md'} ${p.feature ? 'fn-tile--feature' : ''}`} data-cursor="read">
-                <div className="fn-tile__head">
-                  <span className="fn-tile__tag" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                    <img src={p.icon} alt="" style={{ width: 18, height: 18, filter: 'brightness(0) invert(1)', opacity: 0.7 }} />
-                    {p.tag}
-                  </span>
+                <div className="fn-tile__head" style={{ alignItems: 'center', gap: 14 }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                    {p.logo ? (
+                      <span className="fn-tile__brand"><img src={p.logo} alt="" /></span>
+                    ) : p.icon ? (
+                      <img src={p.icon} alt="" style={{ width: 18, height: 18, filter: 'brightness(0) invert(1)', opacity: 0.7 }} />
+                    ) : null}
+                    <span className="fn-tile__tag">{p.tag}</span>
+                  </div>
                   <span className={`fn-tile__status fn-tile__status--live`}>{p.status}</span>
                 </div>
                 <h3 className="fn-tile__name">{p.name}</h3>
