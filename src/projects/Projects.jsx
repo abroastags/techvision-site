@@ -12,6 +12,17 @@ const COUNTERS = [
   { n: '99.95%',                   l: 'Uptime · last 30d' },
 ];
 
+const CLIENT_LOGOS = [
+  { src: '/assets/logos/bangladesh-university.png', name: 'Bangladesh University' },
+  { src: '/assets/logos/vitti-sthapati-brindo.png', name: 'Vitti Sthapati Brindo Ltd.' },
+  { src: '/assets/logos/dncc.png',                   name: 'Dhaka North City Corporation' },
+  { src: '/assets/logos/nicvd.png',                  name: 'National Institute of Cardiovascular Diseases' },
+  { src: '/assets/logos/nuarca.png',                 name: 'NuArca' },
+  { src: '/assets/logos/wolters-kluwer.png',         name: 'Wolters Kluwer' },
+  { src: '/assets/logos/empyrean.png',               name: 'Empyrean Solutions' },
+  { src: '/assets/logos/mlb.png',                    name: 'Major League Baseball' },
+];
+
 const PROJECTS = [
   { id: 'binimoy', icon: '/assets/icons/finance.png',
     tag: 'FINTECH · NATIONAL', name: 'Binimoy / IDTP', status: 'LIVE',
@@ -119,6 +130,23 @@ export default function Projects() {
           <p className="fn-feature__logos-l">▾ 15 utilities under the Power Division</p>
           <div className="fn-feature__logos">
             {UTILITIES.map(u => <span key={u} className="fn-feature__logo">{u}</span>)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Client logo marquee ─────────────────────────────── */}
+      <section className="fn-logobar" aria-label="Other clients">
+        <div className="fn-logobar__head">
+          <h2 className="fn-logobar__eyebrow">▾ OTHER CLIENTS · NATIONAL + INTERNATIONAL</h2>
+          <span className="fn-logobar__meta">8 BRANDS · ALWAYS SCROLLING</span>
+        </div>
+        <div className="fn-logobar__track-wrap">
+          <div className="fn-logobar__track">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((l, i) => (
+              <span key={i} className="fn-logobar__item" data-cursor={l.name.toLowerCase()} title={l.name}>
+                <img src={l.src} alt={l.name} loading="lazy" />
+              </span>
+            ))}
           </div>
         </div>
       </section>

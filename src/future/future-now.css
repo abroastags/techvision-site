@@ -898,3 +898,56 @@ body { background: var(--fn-bg); }
 .fn-tile__status--soon  { color: var(--fn-blue); }
 .fn-tile__status--soon::before { background: var(--fn-blue); box-shadow: 0 0 8px var(--fn-blue); }
 
+/* ── Client logo marquee (Projects page) ─────────────────────── */
+.fn-logobar {
+  padding: clamp(40px, 6vw, 72px) 0 clamp(28px, 4vw, 56px);
+  border-top: 1px solid var(--fn-hair);
+  border-bottom: 1px solid var(--fn-hair);
+  background: var(--fn-bg);
+}
+.fn-logobar__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px;
+  padding: 0 var(--fn-pad-x);
+  margin: 0 auto clamp(24px, 3vw, 40px);
+  max-width: var(--fn-shell);
+}
+.fn-logobar__eyebrow {
+  font-family: var(--fn-mono); font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fn-lime); margin: 0;
+}
+.fn-logobar__meta {
+  font-family: var(--fn-mono); font-size: 11px;
+  letter-spacing: 0.14em; color: var(--fn-fg-3);
+  text-transform: uppercase;
+}
+.fn-logobar__track-wrap {
+  overflow: clip;
+  position: relative;
+  /* fade the edges so logos enter / exit cleanly */
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.fn-logobar__track {
+  display: inline-flex; gap: clamp(20px, 2vw, 32px);
+  white-space: nowrap;
+  animation: fn-scroll 42s linear infinite;
+  will-change: transform;
+}
+.fn-logobar__item {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: clamp(56px, 7vw, 88px);
+  min-width: clamp(120px, 14vw, 200px);
+  padding: 12px clamp(20px, 2vw, 28px);
+  background: #fff;
+  border-radius: var(--fn-radius);
+  transition: transform 220ms var(--fn-ease);
+}
+.fn-logobar__item:hover { transform: translateY(-2px); }
+.fn-logobar__item img {
+  max-height: 100%; max-width: 100%;
+  width: auto; height: auto;
+  object-fit: contain; display: block;
+}
+
