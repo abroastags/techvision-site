@@ -1,4 +1,4 @@
-import { FutureCursor, FutureNav, FutureFooter, Magnet, LogoMarquee } from '../future/FutureNow.jsx';
+import { FutureCursor, FutureNav, FutureFooter, Magnet, Marquee, TICKER_A } from '../future/FutureNow.jsx';
 
 const UTILITIES = [
   { code: 'APSCL',    logo: '/assets/logos/power/apscl.jpg'    },
@@ -143,8 +143,8 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* ── Client logo marquee (shared with homepage) ──────── */}
-      <LogoMarquee />
+      {/* ── Operational ticker (shared with homepage) ───────── */}
+      <Marquee items={TICKER_A} />
 
       {/* ── Section 3 · Project tiles ───────────────────────── */}
       <section className="fn-section" id="projects">

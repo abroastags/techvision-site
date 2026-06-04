@@ -601,6 +601,16 @@ export function FutureFooter() {
 }
 
 /* ── Root ───────────────────────────────────────────────────── */
+export const TICKER_A = [
+  { text: 'IDTP · 184,213,540 settled · uptime 99.99%',        icon: '/assets/icons/finance.png' },
+  { text: 'NCC AI · 1.4s inference · 412 studies / day',       icon: '/assets/icons/performance.png', outline: true },
+  { text: 'Power ERP · 15 orgs · v6.4.0',                      icon: '/assets/icons/plant.png' },
+  { text: 'DNCC · 4.5M residents · v3.2.4',                    icon: '/assets/icons/admin.png',       outline: true },
+  { text: 'Proxy voting · 9 min settlement · on chain',        icon: '/assets/icons/tender.png' },
+  { text: 'MLB NFT · game-day drops · on chain',               icon: '/assets/icons/hr.png',          outline: true },
+  { text: 'AML · CRA · HMDA · audit-clean',                    icon: '/assets/icons/procurement.png' },
+];
+
 const TICKER_B = [
   { text: 'WE ANSWER THE PHONE AT 3AM' },
   { text: '+880 2 555 0144 · NO IVR', outline: true },
