@@ -326,6 +326,34 @@ function FutureHero() {
   );
 }
 
+/* ── Client logo marquee ────────────────────────────────────── */
+export const CLIENT_LOGOS = [
+  { src: '/assets/logos/bangladesh-university.png', name: 'Bangladesh University' },
+  { src: '/assets/logos/vitti-sthapati-brindo.png', name: 'Vitti Sthapati Brindo Ltd.' },
+  { src: '/assets/logos/dncc.png',                   name: 'Dhaka North City Corporation' },
+  { src: '/assets/logos/nicvd.png',                  name: 'National Institute of Cardiovascular Diseases' },
+  { src: '/assets/logos/nuarca.png',                 name: 'NuArca' },
+  { src: '/assets/logos/wolters-kluwer.png',         name: 'Wolters Kluwer' },
+  { src: '/assets/logos/empyrean.png',               name: 'Empyrean Solutions' },
+  { src: '/assets/logos/mlb.png',                    name: 'Major League Baseball' },
+];
+
+export function LogoMarquee({ logos = CLIENT_LOGOS }) {
+  return (
+    <section className="fn-logobar" aria-label="Clients">
+      <div className="fn-logobar__track-wrap">
+        <div className="fn-logobar__track">
+          {[...logos, ...logos, ...logos].map((l, i) => (
+            <span key={i} className="fn-logobar__item" data-cursor={l.name.toLowerCase()} title={l.name}>
+              <img src={l.src} alt={l.name} loading="lazy" />
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Marquee ────────────────────────────────────────────────── */
 export function Marquee({ items, variant, reverse }) {
   const cls = `fn-marquee ${variant === 'lime' ? 'fn-marquee--lime' : ''}`;
@@ -573,16 +601,6 @@ export function FutureFooter() {
 }
 
 /* ── Root ───────────────────────────────────────────────────── */
-const TICKER_A = [
-  { text: 'IDTP · 184,213,540 settled · uptime 99.99%',        icon: '/assets/icons/finance.png' },
-  { text: 'NCC AI · 1.4s inference · 412 studies / day',       icon: '/assets/icons/performance.png', outline: true },
-  { text: 'Power ERP · 15 orgs · v6.4.0',                      icon: '/assets/icons/plant.png' },
-  { text: 'DNCC · 4.5M residents · v3.2.4',                    icon: '/assets/icons/admin.png',       outline: true },
-  { text: 'Proxy voting · 9 min settlement · on chain',        icon: '/assets/icons/tender.png' },
-  { text: 'MLB NFT · game-day drops · on chain',               icon: '/assets/icons/hr.png',          outline: true },
-  { text: 'AML · CRA · HMDA · audit-clean',                    icon: '/assets/icons/procurement.png' },
-];
-
 const TICKER_B = [
   { text: 'WE ANSWER THE PHONE AT 3AM' },
   { text: '+880 2 555 0144 · NO IVR', outline: true },
@@ -597,7 +615,7 @@ export default function FutureNow() {
       <FutureCursor />
       <FutureNav />
       <FutureHero />
-      <Marquee items={TICKER_A} />
+      <LogoMarquee />
       <FutureSystems />
       <Marquee items={TICKER_B} variant="lime" reverse />
       <FutureCapabilities />

@@ -1,4 +1,4 @@
-import { FutureCursor, FutureNav, FutureFooter, Magnet } from '../future/FutureNow.jsx';
+import { FutureCursor, FutureNav, FutureFooter, Magnet, LogoMarquee } from '../future/FutureNow.jsx';
 
 const UTILITIES = [
   { code: 'APSCL',    logo: '/assets/logos/power/apscl.jpg'    },
@@ -23,17 +23,6 @@ const COUNTERS = [
   { n: '125 Cr+',                  l: 'Avg. monthly salary disbursed' },
   { n: '13 lacs+',                 l: 'Fixed assets tracked' },
   { n: '99.95%',                   l: 'Uptime · last 30d' },
-];
-
-const CLIENT_LOGOS = [
-  { src: '/assets/logos/bangladesh-university.png', name: 'Bangladesh University' },
-  { src: '/assets/logos/vitti-sthapati-brindo.png', name: 'Vitti Sthapati Brindo Ltd.' },
-  { src: '/assets/logos/dncc.png',                   name: 'Dhaka North City Corporation' },
-  { src: '/assets/logos/nicvd.png',                  name: 'National Institute of Cardiovascular Diseases' },
-  { src: '/assets/logos/nuarca.png',                 name: 'NuArca' },
-  { src: '/assets/logos/wolters-kluwer.png',         name: 'Wolters Kluwer' },
-  { src: '/assets/logos/empyrean.png',               name: 'Empyrean Solutions' },
-  { src: '/assets/logos/mlb.png',                    name: 'Major League Baseball' },
 ];
 
 const PROJECTS = [
@@ -154,18 +143,8 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* ── Client logo marquee ─────────────────────────────── */}
-      <section className="fn-logobar" aria-label="Other clients">
-        <div className="fn-logobar__track-wrap">
-          <div className="fn-logobar__track">
-            {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((l, i) => (
-              <span key={i} className="fn-logobar__item" data-cursor={l.name.toLowerCase()} title={l.name}>
-                <img src={l.src} alt={l.name} loading="lazy" />
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Client logo marquee (shared with homepage) ──────── */}
+      <LogoMarquee />
 
       {/* ── Section 3 · Project tiles ───────────────────────── */}
       <section className="fn-section" id="projects">
