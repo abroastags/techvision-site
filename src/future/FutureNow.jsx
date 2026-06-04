@@ -234,7 +234,6 @@ function FutureNav() {
         <a href="#work" data-cursor="jump">Systems</a>
         <a href="#practice" data-cursor="jump">Practice</a>
         <a href="#manifesto" data-cursor="jump">Manifesto</a>
-        <a href="/about.html" data-cursor="jump">About</a>
         <a href="#contact" data-cursor="jump">Contact</a>
       </nav>
       <div className="fn-nav__live">ALL SYSTEMS · {clock || 'DHAKA --:--'}</div>
@@ -536,7 +535,7 @@ function FutureCTA() {
 const FOOTER_LINKS = {
   Work:     ['Binimoy', 'Power Division ERP', 'DNCC', 'NCC imaging', 'Proxy voting', 'MLB NFT', 'Bank compliance'],
   Practice: ['Mission-critical', 'Compliance', 'Blockchain', 'Hospital AI', 'Government', 'On-call ops'],
-  Company:  ['About', 'Engineering', 'Careers', 'Press', 'Contact'],
+  Company:  ['Engineering', 'Careers', 'Press', 'Contact'],
 };
 
 function FutureFooter() {
@@ -554,7 +553,7 @@ function FutureFooter() {
               <ul>
                 {items.slice(0, 6).map((l) => (
                   <li key={l}>
-                    <a href={l === 'About' ? '/about.html' : '#'} data-cursor="link">{l}</a>
+                    <a href="#" data-cursor="link">{l}</a>
                   </li>
                 ))}
               </ul>
