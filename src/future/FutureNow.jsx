@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
 /* ── Cursor ──────────────────────────────────────────────────── */
-function FutureCursor() {
+export function FutureCursor() {
   const ref = useRef(null);
   const labelRef = useRef(null);
   const tx = useRef(0);
@@ -47,7 +47,7 @@ function FutureCursor() {
 }
 
 /* ── Magnetic button / link wrapper ──────────────────────────── */
-function Magnet({ children, className = '', strength = 0.35, href, ...rest }) {
+export function Magnet({ children, className = '', strength = 0.35, href, ...rest }) {
   const ref = useRef(null);
   const Tag = href ? 'a' : 'button';
 
@@ -208,7 +208,7 @@ function FnTile({ size = 'md', tile }) {
 }
 
 /* ── Nav ────────────────────────────────────────────────────── */
-function FutureNav() {
+export function FutureNav() {
   const [clock, setClock] = useState('');
 
   useEffect(() => {
@@ -231,10 +231,12 @@ function FutureNav() {
         techvision
       </a>
       <nav className="fn-nav__links">
-        <a href="#work" data-cursor="jump">Systems</a>
-        <a href="#practice" data-cursor="jump">Practice</a>
-        <a href="#manifesto" data-cursor="jump">Manifesto</a>
-        <a href="#contact" data-cursor="jump">Contact</a>
+        <a href="/#work" data-cursor="jump">Systems</a>
+        <a href="/services.html" data-cursor="jump">Services</a>
+        <a href="/projects.html" data-cursor="jump">Projects</a>
+        <a href="/#practice" data-cursor="jump">Practice</a>
+        <a href="/#manifesto" data-cursor="jump">Manifesto</a>
+        <a href="/#contact" data-cursor="jump">Contact</a>
       </nav>
       <div className="fn-nav__live">ALL SYSTEMS · {clock || 'DHAKA --:--'}</div>
     </header>
@@ -325,13 +327,14 @@ function FutureHero() {
 }
 
 /* ── Marquee ────────────────────────────────────────────────── */
-function Marquee({ items, variant, reverse }) {
+export function Marquee({ items, variant, reverse }) {
   const cls = `fn-marquee ${variant === 'lime' ? 'fn-marquee--lime' : ''}`;
   return (
     <div className={cls}>
       <div className={`fn-marquee__track ${reverse ? 'fn-marquee__track--reverse' : ''}`}>
         {[...items, ...items].map((it, i) => (
           <span key={i} className={`fn-marquee__item ${it.outline ? 'fn-marquee__item--outline' : ''}`}>
+            {it.icon && <img src={it.icon} className="fn-marquee__item-icon" alt="" aria-hidden="true" />}
             <span className="fn-marquee__item-dot"></span>
             {it.text}
           </span>
@@ -538,7 +541,7 @@ const FOOTER_LINKS = {
   Company:  ['Engineering', 'Careers', 'Press', 'Contact'],
 };
 
-function FutureFooter() {
+export function FutureFooter() {
   return (
     <footer>
       <div className="fn-shell">
@@ -571,13 +574,13 @@ function FutureFooter() {
 
 /* ── Root ───────────────────────────────────────────────────── */
 const TICKER_A = [
-  { text: 'Binimoy · 184,213,540 settled · uptime 99.99%' },
-  { text: 'NCC AI · 1.4s inference · 412 studies / day', outline: true },
-  { text: 'Power ERP · 15 orgs · v6.4.0' },
-  { text: 'DNCC · 4.5M residents · v3.2.4', outline: true },
-  { text: 'Proxy voting · 9 min settlement · on chain' },
-  { text: 'MLB NFT · game-day drops · on chain', outline: true },
-  { text: 'AML · CRA · HMDA · audit-clean' },
+  { text: 'Binimoy · 184,213,540 settled · uptime 99.99%',     icon: '/assets/icons/finance.png' },
+  { text: 'NCC AI · 1.4s inference · 412 studies / day',       icon: '/assets/icons/performance.png', outline: true },
+  { text: 'Power ERP · 15 orgs · v6.4.0',                      icon: '/assets/icons/plant.png' },
+  { text: 'DNCC · 4.5M residents · v3.2.4',                    icon: '/assets/icons/admin.png',       outline: true },
+  { text: 'Proxy voting · 9 min settlement · on chain',        icon: '/assets/icons/tender.png' },
+  { text: 'MLB NFT · game-day drops · on chain',               icon: '/assets/icons/hr.png',          outline: true },
+  { text: 'AML · CRA · HMDA · audit-clean',                    icon: '/assets/icons/procurement.png' },
 ];
 
 const TICKER_B = [

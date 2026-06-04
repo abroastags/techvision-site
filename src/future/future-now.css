@@ -321,6 +321,13 @@ body { background: var(--fn-bg); }
   width: clamp(5px, 0.6vw, 8px); height: clamp(5px, 0.6vw, 8px); border-radius: 50%;
   background: var(--fn-lime); display: inline-block;
 }
+.fn-marquee__item-icon {
+  width: clamp(20px, 2.6vw, 36px); height: clamp(20px, 2.6vw, 36px);
+  display: inline-block; object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+.fn-marquee--lime .fn-marquee__item-icon { filter: brightness(0); opacity: 0.9; }
 .fn-marquee--lime .fn-marquee__item-dot { background: var(--fn-bg); }
 .fn-marquee__item--outline {
   color: transparent;
@@ -745,3 +752,149 @@ body { background: var(--fn-bg); }
 /* ── Misc ────────────────────────────────────────────────────── */
 .fn-scramble { display: inline-block; }
 .fn-glow { text-shadow: 0 0 32px rgba(61,123,255,0.55); }
+
+/* ────────────────────────────────────────────────────────────────
+   Shared page extensions — Services & Projects
+   ──────────────────────────────────────────────────────────────── */
+
+/* DAP cards (Services hero band) */
+.fn-dap {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  margin-top: clamp(40px, 6vw, 72px);
+}
+@media (max-width: 720px) { .fn-dap { grid-template-columns: 1fr; } }
+.fn-dap__card {
+  position: relative;
+  padding: clamp(28px, 3vw, 40px);
+  background: var(--fn-bg-2);
+  border: 1px solid var(--fn-hair);
+  border-radius: var(--fn-radius);
+  display: flex; flex-direction: column; gap: 14px;
+  transition: border-color 220ms, background 220ms;
+}
+.fn-dap__card:hover { border-color: var(--fn-fg-4); }
+.fn-dap__letter {
+  font-family: var(--fn-font); font-weight: 600;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.9; letter-spacing: -0.04em;
+  color: var(--fn-lime);
+}
+.fn-dap__name {
+  font-family: var(--fn-font); font-weight: 600;
+  font-size: clamp(20px, 1.8vw, 26px); letter-spacing: -0.02em;
+  margin: 0; color: var(--fn-fg);
+}
+.fn-dap__body { color: var(--fn-fg-2); font-size: clamp(14px, 1vw, 16px); line-height: 1.5; margin: 0; }
+
+/* Service / project tile icons */
+.fn-tile__icon {
+  width: 48px; height: 48px; display: block;
+  margin: 0 0 16px;
+  object-fit: contain;
+}
+@media (max-width: 720px) {
+  .fn-tile__icon { width: 40px; height: 40px; }
+}
+
+/* Integrations strip (Services page Section 3) */
+.fn-integrations {
+  padding: clamp(48px, 7vw, 96px) 0;
+  border-top: 1px solid var(--fn-hair);
+  border-bottom: 1px solid var(--fn-hair);
+  background: var(--fn-bg-2);
+}
+.fn-integrations__head {
+  font-family: var(--fn-mono); font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fn-lime);
+  margin: 0 0 24px;
+}
+.fn-integrations__row {
+  display: flex; gap: clamp(32px, 5vw, 80px);
+  flex-wrap: wrap; align-items: center;
+}
+.fn-integrations__item {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--fn-fg-2);
+  font-family: var(--fn-font); font-weight: 500;
+  font-size: clamp(15px, 1.2vw, 19px);
+}
+.fn-integrations__item img {
+  width: 36px; height: 36px; object-fit: contain;
+  background: #fff; border-radius: 6px; padding: 4px;
+}
+.fn-integrations__item span small {
+  display: block; font-family: var(--fn-mono);
+  font-size: 10.5px; letter-spacing: 0.12em;
+  color: var(--fn-fg-3); text-transform: uppercase; margin-top: 2px;
+}
+
+/* Power Sector ERP feature band (Projects page) */
+.fn-feature {
+  padding: clamp(48px, 7vw, 96px) 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(61,123,255,0.14), transparent 55%),
+    var(--fn-bg);
+  border-top: 1px solid var(--fn-hair);
+  border-bottom: 1px solid var(--fn-hair);
+}
+.fn-feature__claim {
+  font-family: var(--fn-font); font-weight: 600;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.95; letter-spacing: -0.04em;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  max-width: 18ch; text-wrap: balance;
+}
+.fn-feature__claim em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--fn-blue), var(--fn-violet));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.fn-feature__counters {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-top: 1px solid var(--fn-hair);
+  border-bottom: 1px solid var(--fn-hair);
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+@media (max-width: 720px) { .fn-feature__counters { grid-template-columns: repeat(2, 1fr); } }
+.fn-feature__counter { display: flex; flex-direction: column; gap: 6px; padding-right: 16px; }
+.fn-feature__counter-n {
+  font-family: var(--fn-font); font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 56px); letter-spacing: -0.025em; line-height: 1;
+  color: var(--fn-fg); font-variant-numeric: tabular-nums;
+}
+.fn-feature__counter-n--lime { color: var(--fn-lime); }
+.fn-feature__counter-l {
+  font-family: var(--fn-mono); font-size: 10.5px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fn-fg-3);
+}
+.fn-feature__logos {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding-top: clamp(20px, 2vw, 32px);
+}
+.fn-feature__logo {
+  font-family: var(--fn-mono); font-size: 11.5px; letter-spacing: 0.06em;
+  color: var(--fn-fg-2);
+  padding: 8px 14px;
+  border: 1px solid var(--fn-hair);
+  border-radius: var(--fn-radius-pill);
+  transition: color 200ms, border-color 200ms;
+}
+.fn-feature__logo:hover { color: var(--fn-fg); border-color: var(--fn-fg-4); }
+.fn-feature__logos-l {
+  font-family: var(--fn-mono); font-size: 10.5px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fn-fg-3);
+  margin: 0 0 14px;
+}
+
+/* Project tile status badge */
+.fn-tile__status--live  { color: var(--fn-lime); }
+.fn-tile__status--soon  { color: var(--fn-blue); }
+.fn-tile__status--soon::before { background: var(--fn-blue); box-shadow: 0 0 8px var(--fn-blue); }
+
