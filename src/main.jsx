@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { initTheme } from './theme.js';
-import './styles/tokens.css';
-import './styles/marketing.css';
-
-initTheme();
+import FutureNow from './future/FutureNow.jsx';
+import './future/future-now.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <FutureNow />
   </React.StrictMode>
 );
