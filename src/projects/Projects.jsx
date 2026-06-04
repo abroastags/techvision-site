@@ -1,8 +1,21 @@
 import { FutureCursor, FutureNav, FutureFooter, Magnet } from '../future/FutureNow.jsx';
 
 const UTILITIES = [
-  'APSCL', 'BPDB', 'NESCO', 'EGCB', 'DESCO', 'DPDC', 'CPGCBL', 'BRPL',
-  'BREB', 'NWPGCL', 'BREB-PBS', 'PGCB', 'RPCL', 'SREDA', 'WZPDCL',
+  { code: 'APSCL',    logo: '/assets/logos/power/apscl.jpg'    },
+  { code: 'BPDB',     logo: '/assets/logos/power/bpdb.png'     },
+  { code: 'NESCO',    logo: '/assets/logos/power/nesco.jpg'    },
+  { code: 'EGCB',     logo: '/assets/logos/power/egcb.jpg'     },
+  { code: 'DESCO',    logo: '/assets/logos/power/desco.png'    },
+  { code: 'DPDC',     logo: '/assets/logos/power/dpdc.jpg'     },
+  { code: 'CPGCBL',   logo: '/assets/logos/power/cpgcbl.jpg'   },
+  { code: 'BRPL',     logo: '/assets/logos/power/brpl.png'     },
+  { code: 'BREB',     logo: '/assets/logos/power/breb.jpg'     },
+  { code: 'NWPGCL',   logo: '/assets/logos/power/nwpgcl.jpg'   },
+  { code: 'BREB-PBS', logo: '/assets/logos/power/breb-pbs.jpg' },
+  { code: 'PGCB',     logo: '/assets/logos/power/pgcb.png'     },
+  { code: 'RPCL',     logo: '/assets/logos/power/rpcl.jpg'     },
+  { code: 'SREDA',    logo: '/assets/logos/power/sreda.png'    },
+  { code: 'WZPDCL',   logo: '/assets/logos/power/wzpdcl.jpg'   },
 ];
 
 const COUNTERS = [
@@ -129,7 +142,14 @@ export default function Projects() {
 
           <p className="fn-feature__logos-l">▾ 15 utilities under the Power Division</p>
           <div className="fn-feature__logos">
-            {UTILITIES.map(u => <span key={u} className="fn-feature__logo">{u}</span>)}
+            {UTILITIES.map(u => (
+              <article key={u.code} className="fn-feature__logo" data-cursor={u.code.toLowerCase()}>
+                <span className="fn-feature__logo-img">
+                  <img src={u.logo} alt={u.code} loading="lazy" />
+                </span>
+                <span className="fn-feature__logo-name">{u.code}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
