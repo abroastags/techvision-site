@@ -208,8 +208,18 @@ function FnTile({ size = 'md', tile }) {
 }
 
 /* ── Nav ────────────────────────────────────────────────────── */
+const NAV_LINKS = [
+  { href: '/#work',           label: 'Systems' },
+  { href: '/services.html',   label: 'Services' },
+  { href: '/projects.html',   label: 'Projects' },
+  { href: '/#practice',       label: 'Practice' },
+  { href: '/#manifesto',      label: 'Manifesto' },
+  { href: '/#contact',        label: 'Contact' },
+];
+
 export function FutureNav() {
   const [clock, setClock] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const fmt = () => {
@@ -224,22 +234,66 @@ export function FutureNav() {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
+  const close = () => setMenuOpen(false);
+
   return (
-    <header className="fn-nav">
-      <a href="/" className="fn-nav__brand" data-cursor="home">
-        <span className="fn-nav__brand-dot"></span>
-        techvision
-      </a>
-      <nav className="fn-nav__links">
-        <a href="/#work" data-cursor="jump">Systems</a>
-        <a href="/services.html" data-cursor="jump">Services</a>
-        <a href="/projects.html" data-cursor="jump">Projects</a>
-        <a href="/#practice" data-cursor="jump">Practice</a>
-        <a href="/#manifesto" data-cursor="jump">Manifesto</a>
-        <a href="/#contact" data-cursor="jump">Contact</a>
-      </nav>
-      <div className="fn-nav__live">ALL SYSTEMS · {clock || 'DHAKA --:--'}</div>
-    </header>
+    <>
+      <header className="fn-nav">
+        <a href="/" className="fn-nav__brand" data-cursor="home">
+          <span className="fn-nav__brand-dot"></span>
+          techvision
+        </a>
+        <nav className="fn-nav__links">
+          {NAV_LINKS.map(l => (
+            <a key={l.href} href={l.href} data-cursor="jump">{l.label}</a>
+          ))}
+        </nav>
+        <div className="fn-nav__live">ALL SYSTEMS · {clock || 'DHAKA --:--'}</div>
+        <button
+          type="button"
+          className={`fn-nav__burger ${menuOpen ? 'is-open' : ''}`}
+          onClick={() => setMenuOpen(m => !m)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="fn-mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <div
+        id="fn-mobile-menu"
+        className={`fn-mobile-menu ${menuOpen ? 'is-open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!menuOpen}
+        onClick={close}
+      >
+        <nav className="fn-mobile-menu__inner" onClick={(e) => e.stopPropagation()}>
+          {NAV_LINKS.map(l => (
+            <a key={l.href} href={l.href} className="fn-mobile-menu__link" onClick={close}>
+              {l.label}
+              <span className="fn-mobile-menu__arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+          <div className="fn-mobile-menu__live">
+            <span className="fn-mobile-menu__live-dot" />
+            ALL SYSTEMS · {clock || 'DHAKA --:--'}
+          </div>
+        </nav>
+      </div>
+    </>
   );
 }
 
