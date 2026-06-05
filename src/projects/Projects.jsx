@@ -26,13 +26,13 @@ const COUNTERS = [
 ];
 
 const PROJECTS = [
-  { id: 'idtp', icon: '/assets/icons/finance.png',
-    tag: 'FINTECH · NATIONAL', name: 'IDTP', status: 'LIVE',
-    claim: 'The interoperable digital transaction platform — every bank, MFS and wallet in Bangladesh settling against each other in real time.',
-    client: 'Bangladesh Bank · public infrastructure',
-    metric: '184M+', metricLabel: 'eligible account holders',
+  { id: 'power-erp', icon: '/assets/icons/plant.png',
+    tag: 'NATIONAL UTILITIES · 15 ORGS', name: 'Power Division ERP', status: 'LIVE',
+    claim: 'One ERP across fifteen organisations of the Power Division — finance, HR, asset management, plant ops and procurement for the utilities keeping the national grid lit.',
+    client: '15 utilities · BPDB · DESCO · DPDC · NESCO · BREB · PGCB · …',
+    metric: '72K+', metricLabel: 'employees on payroll',
     feature: true,
-    spark: [40, 55, 48, 68, 62, 78, 72, 88, 80, 92, 84, 96],
+    spark: [44, 52, 58, 66, 60, 74, 70, 82, 78, 88, 84, 94],
   },
   { id: 'ncc-ai', logo: '/assets/logos/nicvd.png',
     tag: 'HEALTHCARE AI', name: 'NCC cardiac AI', status: 'LIVE',
@@ -79,6 +79,13 @@ const PROJECTS = [
     claim: 'Practice-management systems for one of Bangladesh’s leading architecture firms.',
     client: 'Vitti Sthapati Brindo Ltd',
     metric: 'On-prem', metricLabel: 'firm-wide deploy',
+  },
+  { id: 'idtp', icon: '/assets/icons/finance.png',
+    tag: 'FINTECH · NATIONAL', name: 'IDTP', status: 'LIVE',
+    claim: 'The interoperable digital transaction platform — every bank, MFS and wallet in Bangladesh settling against each other in real time.',
+    client: 'Bangladesh Bank · public infrastructure',
+    metric: '184M+', metricLabel: 'eligible account holders',
+    spark: [40, 55, 48, 68, 62, 78, 72, 88, 80, 92, 84, 96],
   },
 ];
 

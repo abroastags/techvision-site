@@ -375,13 +375,13 @@ export function Marquee({ items, variant, reverse }) {
 /* ── Bento ──────────────────────────────────────────────────── */
 const TILES = [
   {
-    id: 'idtp', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
-    claim: 'The national interoperable digital transaction platform. Every bank, MFS and wallet in Bangladesh settling against each other, in real time.',
-    metric: '180M+', metricLabel: 'eligible account holders',
-    sla: '99.99%', region: 'Dhaka · DAC', sector: 'Fintech · public infrastructure',
-    role: 'Architecture · build · ops', oncall: 'N. Rahman (L1)', deploy: 'v3.2.1 · 4h ago',
+    id: 'power-erp', tag: 'NATIONAL UTILITIES · 15 ORGS', name: 'Power Division ERP',
+    claim: 'One ERP across fifteen organisations of the Power Division — finance, HR, asset management, plant ops and procurement for the utilities keeping the national grid lit.',
+    metric: '72K+', metricLabel: 'employees on payroll',
+    sla: '99.95%', region: 'Dhaka', sector: 'Utility · public',
+    role: 'Full lifecycle · on-call', oncall: 'A. Karim (L2)', deploy: 'v6.4.0 · 11h ago',
     feature: true,
-    spark: [40, 55, 48, 68, 62, 78, 72, 88, 80, 92, 84, 96],
+    spark: [44, 52, 58, 66, 60, 74, 70, 82, 78, 88, 84, 94],
   },
   {
     id: 'ncc-ai', tag: 'HEALTHCARE AI', name: 'NCC cardiac AI',
@@ -390,13 +390,6 @@ const TILES = [
     sla: 'Clinical-grade', region: 'Dhaka · NCC', sector: 'Healthcare · AI',
     role: 'Research · build · deploy', oncall: 'S. Hossain (L1)', deploy: 'v1.8 · 2d ago',
     bar: 87,
-  },
-  {
-    id: 'power-erp', tag: 'NATIONAL UTILITIES', name: 'Power Division ERP',
-    claim: 'One ERP across fifteen organisations of the Power Division — the public utilities keeping the national grid lit.',
-    metric: '15', metricLabel: 'orgs · one ERP',
-    sla: '99.95%', region: 'Dhaka', sector: 'Utility · public',
-    role: 'Full lifecycle · on-call', oncall: 'A. Karim (L2)', deploy: 'v6.4.0 · 11h ago',
   },
   {
     id: 'dncc', tag: 'CIVIC · DHAKA NORTH', name: 'DNCC citizen app',
@@ -429,6 +422,14 @@ const TILES = [
     role: 'Engine · reporting · run', oncall: 'F. Ahmed (L2)', deploy: 'v9.1.0 · 6h ago',
     spark: [22, 28, 35, 30, 42, 48, 40, 55, 50, 62, 58, 70],
   },
+  {
+    id: 'idtp', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
+    claim: 'The national interoperable digital transaction platform. Every bank, MFS and wallet in Bangladesh settling against each other, in real time.',
+    metric: '180M+', metricLabel: 'eligible account holders',
+    sla: '99.99%', region: 'Dhaka · DAC', sector: 'Fintech · public infrastructure',
+    role: 'Architecture · build · ops', oncall: 'N. Rahman (L1)', deploy: 'v3.2.1 · 4h ago',
+    spark: [40, 55, 48, 68, 62, 78, 72, 88, 80, 92, 84, 96],
+  },
 ];
 
 function FutureSystems() {
@@ -455,13 +456,13 @@ function FutureSystems() {
         </div>
 
         <div className="fn-bento">
-          <FnTile size="lg" tile={{ ...TILES[0], liveMetric: liveIdtp, metricLabel: 'transactions settled today · live' }} />
+          <FnTile size="lg" tile={TILES[0]} />
           <FnTile size="md" tile={TILES[1]} />
           <FnTile size="md" tile={TILES[2]} />
           <FnTile size="sm" tile={TILES[3]} />
           <FnTile size="sm" tile={TILES[4]} />
           <FnTile size="sm" tile={TILES[5]} />
-          <FnTile size="xl" tile={TILES[6]} />
+          <FnTile size="xl" tile={{ ...TILES[6], liveMetric: liveIdtp, metricLabel: 'transactions settled today · live' }} />
         </div>
       </div>
     </section>
