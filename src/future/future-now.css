@@ -168,7 +168,9 @@ body { background: var(--fn-bg); }
   .fn-nav__links { display: none; }
   .fn-nav__live  { display: none; }
   .fn-nav__burger { display: inline-flex; }
-  .fn-nav { padding: 14px var(--fn-pad-x); gap: 12px; }
+  /* Lift the nav (and burger) above the mobile-menu overlay (z-index 60)
+     so the white burger/X stays visible and clickable while the menu is open. */
+  .fn-nav { padding: 14px var(--fn-pad-x); gap: 12px; z-index: 70; }
 }
 
 /* ── Mobile menu overlay ─────────────────────────────────────── */

@@ -619,9 +619,25 @@ function FutureCTA() {
 
 /* ── Footer ─────────────────────────────────────────────────── */
 const FOOTER_LINKS = {
-  Work:     ['IDTP', 'Power Division ERP', 'DNCC', 'NCC imaging', 'Proxy voting', 'MLB NFT', 'Bank compliance'],
-  Practice: ['Mission-critical', 'Compliance', 'Blockchain', 'Hospital AI', 'Government', 'On-call ops'],
-  Company:  ['Engineering', 'Careers', 'Press', 'Contact'],
+  Work: [
+    { label: 'IDTP',               href: '/#work' },
+    { label: 'Power Division ERP', href: '/#work' },
+    { label: 'DNCC',               href: '/#work' },
+    { label: 'NCC imaging',        href: '/#work' },
+    { label: 'Proxy voting',       href: '/#work' },
+    { label: 'MLB NFT',            href: '/#work' },
+  ],
+  Practice: [
+    { label: 'Mission-critical', href: '/#practice' },
+    { label: 'Compliance',       href: '/#practice' },
+    { label: 'Blockchain',       href: '/#practice' },
+    { label: 'Hospital AI',      href: '/#practice' },
+    { label: 'Government',       href: '/#practice' },
+    { label: 'On-call ops',      href: '/#practice' },
+  ],
+  Company: [
+    { label: 'Contact', href: '/#contact' },
+  ],
 };
 
 export function FutureFooter() {
@@ -638,8 +654,8 @@ export function FutureFooter() {
               <h5>▾ {h}</h5>
               <ul>
                 {items.slice(0, 6).map((l) => (
-                  <li key={l}>
-                    <a href="#" data-cursor="link">{l}</a>
+                  <li key={l.label}>
+                    <a href={l.href} data-cursor="link">{l.label}</a>
                   </li>
                 ))}
               </ul>
