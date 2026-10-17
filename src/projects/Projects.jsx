@@ -34,6 +34,13 @@ const PROJECTS = [
     feature: true,
     spark: [44, 52, 58, 66, 60, 74, 70, 82, 78, 88, 84, 94],
   },
+  { id: 'marketiq', icon: '/assets/icons/performance.png',
+    tag: 'MARKETING OS · AI', name: 'MarketIQ', status: 'BETA', tall: true,
+    claim: 'AI-driven marketing OS — plan, approve, publish and measure campaigns across Meta, Google, YouTube and TikTok, with fraud detection that puts a price on wasted spend and approvals with a full audit trail.',
+    client: 'TechVision product · marketiq.cloudlabs.live',
+    metric: '4', metricLabel: 'ad platforms · one workspace',
+    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
+  },
   { id: 'ncc-ai', logo: '/assets/logos/nicvd.png',
     tag: 'HEALTHCARE AI', name: 'NCC cardiac AI', status: 'LIVE',
     claim: 'On-prem cardiac imaging assist for the National Institute of Cardiovascular Diseases. Flags abnormalities for the radiologist on shift.',
@@ -79,13 +86,6 @@ const PROJECTS = [
     claim: 'Practice-management systems for one of Bangladesh’s leading architecture firms.',
     client: 'Vitti Sthapati Brindo Ltd',
     metric: 'On-prem', metricLabel: 'firm-wide deploy',
-  },
-  { id: 'marketiq', icon: '/assets/icons/performance.png',
-    tag: 'MARKETING OS · AI', name: 'MarketIQ', status: 'BETA',
-    claim: 'AI-driven marketing OS — plan, approve, publish and measure campaigns across Meta, Google, YouTube and TikTok, with fraud detection that puts a price on wasted spend and approvals with a full audit trail.',
-    client: 'TechVision product · marketiq.cloudlabs.live',
-    metric: '4', metricLabel: 'ad platforms · one workspace',
-    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
   },
   { id: 'idtp', icon: '/assets/icons/finance.png',
     tag: 'FINTECH · NATIONAL', name: 'IDTP', status: 'LIVE',
@@ -175,7 +175,7 @@ export default function Projects() {
 
           <div className="fn-bento">
             {PROJECTS.map((p, i) => (
-              <article key={p.id} className={`fn-tile fn-tile--${i === 0 ? 'lg' : i < 3 ? 'md' : i < 6 ? 'sm' : 'md'} ${p.feature ? 'fn-tile--feature' : ''}`} data-cursor="read">
+              <article key={p.id} className={`fn-tile fn-tile--${i === 0 ? 'lg' : i === 1 ? 'sm' : (i - 1) < 3 ? 'md' : (i - 1) < 6 ? 'sm' : 'md'} ${p.feature ? 'fn-tile--feature' : ''} ${p.tall ? 'fn-tile--tall' : ''}`} data-cursor="read">
                 <div className="fn-tile__head" style={{ alignItems: 'center', gap: 14 }}>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
                     {p.logo ? (

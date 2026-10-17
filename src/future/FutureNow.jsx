@@ -155,7 +155,7 @@ function FnTile({ size = 'md', tile }) {
 
   return (
     <article ref={ref}
-      className={`fn-tile fn-tile--${size} ${tile.feature ? 'fn-tile--feature' : ''} ${flipped ? 'is-flipped' : ''}`}
+      className={`fn-tile fn-tile--${size} ${tile.feature ? 'fn-tile--feature' : ''} ${tile.tall ? 'fn-tile--tall' : ''} ${flipped ? 'is-flipped' : ''}`}
       data-cursor={flipped ? 'close' : 'open'}
       onClick={() => setFlipped((f) => !f)}>
       <div className="fn-tile__head">
@@ -437,6 +437,15 @@ const TILES = [
     spark: [44, 52, 58, 66, 60, 74, 70, 82, 78, 88, 84, 94],
   },
   {
+    id: 'marketiq', tag: 'MARKETING OS · AI', name: 'MarketIQ',
+    claim: 'Brief to ROI across Meta, Google, YouTube and TikTok — with fraud detection that puts a price on wasted spend.',
+    metric: '4', metricLabel: 'ad platforms · one workspace',
+    sla: 'Beta · founding partners', region: 'Cloud · multi-tenant', sector: 'Martech · SaaS',
+    role: 'Product · build · run', oncall: 'Product team', deploy: 'Live',
+    status: 'BETA', tall: true,
+    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
+  },
+  {
     id: 'ncc-ai', tag: 'HEALTHCARE AI', name: 'NCC cardiac AI',
     claim: 'Cardiac imaging assist. Flags abnormalities for the radiologist on shift, in under two seconds.',
     metric: '<2s', metricLabel: 'inference per study',
@@ -476,15 +485,6 @@ const TILES = [
     spark: [22, 28, 35, 30, 42, 48, 40, 55, 50, 62, 58, 70],
   },
   {
-    id: 'marketiq', tag: 'MARKETING OS · AI', name: 'MarketIQ',
-    claim: 'Brief to ROI across Meta, Google, YouTube and TikTok — with fraud detection that puts a price on wasted spend.',
-    metric: '4', metricLabel: 'ad platforms · one workspace',
-    sla: 'Beta · founding partners', region: 'Cloud · multi-tenant', sector: 'Martech · SaaS',
-    role: 'Product · build · run', oncall: 'Product team', deploy: 'Live',
-    status: 'BETA',
-    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
-  },
-  {
     id: 'idtp', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
     claim: 'The national interoperable digital transaction platform. Every bank, MFS and wallet in Bangladesh settling against each other, in real time.',
     metric: '180M+', metricLabel: 'eligible account holders',
@@ -519,9 +519,9 @@ function FutureSystems() {
 
         <div className="fn-bento">
           <FnTile size="lg" tile={TILES[0]} />
-          <FnTile size="md" tile={TILES[1]} />
+          <FnTile size="sm" tile={TILES[1]} />
           <FnTile size="md" tile={TILES[2]} />
-          <FnTile size="sm" tile={TILES[3]} />
+          <FnTile size="md" tile={TILES[3]} />
           <FnTile size="sm" tile={TILES[4]} />
           <FnTile size="sm" tile={TILES[5]} />
           <FnTile size="sm" tile={TILES[6]} />

@@ -1082,3 +1082,8 @@ body { background: var(--fn-bg); }
   /* Keep nav and menu clear of notches */
   .fn-nav { padding-left: max(var(--fn-pad-x), env(safe-area-inset-left)); padding-right: max(var(--fn-pad-x), env(safe-area-inset-right)); }
 }
+
+/* MarketIQ sits beside the two-row flagship tile on desktop */
+@media (min-width: 1081px) {
+  .fn-tile--sm.fn-tile--tall { grid-row: span 2; }
+}
