@@ -320,6 +320,8 @@ function FutureHero() {
   }, []);
 
   const txCount = useMemo(() => 184_213_540 + seconds * 38, [seconds]);
+  const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const sec = (seconds % 60).toString().padStart(2, '0');
 
   return (
     <section ref={heroRef} className="fn-hero">
@@ -327,6 +329,7 @@ function FutureHero() {
       <div className="fn-shell">
         <div className="fn-hero__eyebrow">
           <b>● LIVE</b>
+          <span style={{ marginLeft: 'auto', color: 'var(--fn-fg-3)' }}>YOU&apos;VE BEEN HERE {minutes}:{sec}</span>
         </div>
 
         <h1 className="fn-hero__claim">
