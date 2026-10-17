@@ -80,6 +80,13 @@ const PROJECTS = [
     client: 'Vitti Sthapati Brindo Ltd',
     metric: 'On-prem', metricLabel: 'firm-wide deploy',
   },
+  { id: 'marketiq', icon: '/assets/icons/performance.png',
+    tag: 'MARKETING OS · AI', name: 'MarketIQ', status: 'BETA',
+    claim: 'AI-driven marketing OS — plan, approve, publish and measure campaigns across Meta, Google, YouTube and TikTok, with fraud detection that puts a price on wasted spend and approvals with a full audit trail.',
+    client: 'TechVision product · marketiq.cloudlabs.live',
+    metric: '4', metricLabel: 'ad platforms · one workspace',
+    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
+  },
   { id: 'idtp', icon: '/assets/icons/finance.png',
     tag: 'FINTECH · NATIONAL', name: 'IDTP', status: 'LIVE',
     claim: 'The interoperable digital transaction platform — every bank, MFS and wallet in Bangladesh settling against each other in real time.',
@@ -163,7 +170,7 @@ export default function Projects() {
                 Built once. <em>Still running.</em>
               </h2>
             </div>
-            <div className="fn-section__meta">8 SYSTEMS · 2 REGIONS · ALL LIVE</div>
+            <div className="fn-section__meta">9 SYSTEMS · 2 REGIONS · ALL LIVE</div>
           </div>
 
           <div className="fn-bento">

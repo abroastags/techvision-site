@@ -160,7 +160,7 @@ function FnTile({ size = 'md', tile }) {
       onClick={() => setFlipped((f) => !f)}>
       <div className="fn-tile__head">
         <span className="fn-tile__tag">{tile.tag}</span>
-        <span className="fn-tile__status">LIVE</span>
+        <span className="fn-tile__status">{tile.status ?? 'LIVE'}</span>
       </div>
       <h3 className="fn-tile__name">{tile.name}</h3>
       <p className="fn-tile__claim">{tile.claim}</p>
@@ -476,6 +476,15 @@ const TILES = [
     spark: [22, 28, 35, 30, 42, 48, 40, 55, 50, 62, 58, 70],
   },
   {
+    id: 'marketiq', tag: 'MARKETING OS · AI', name: 'MarketIQ',
+    claim: 'Brief to ROI across Meta, Google, YouTube and TikTok — with fraud detection that puts a price on wasted spend.',
+    metric: '4', metricLabel: 'ad platforms · one workspace',
+    sla: 'Beta · founding partners', region: 'Cloud · multi-tenant', sector: 'Martech · SaaS',
+    role: 'Product · build · run', oncall: 'Product team', deploy: 'Live',
+    status: 'BETA',
+    spark: [20, 30, 38, 34, 48, 52, 46, 60, 66, 62, 74, 82],
+  },
+  {
     id: 'idtp', tag: 'FINTECH · BANGLADESH', name: 'IDTP',
     claim: 'The national interoperable digital transaction platform. Every bank, MFS and wallet in Bangladesh settling against each other, in real time.',
     metric: '180M+', metricLabel: 'eligible account holders',
@@ -505,7 +514,7 @@ function FutureSystems() {
               <Scramble text="Today's science fiction, " trigger="mount" /><em>in production.</em>
             </h2>
           </div>
-          <div className="fn-section__meta">7 SYSTEMS · 5 REGIONS · LAST SYNC LIVE</div>
+          <div className="fn-section__meta">8 SYSTEMS · 5 REGIONS · LAST SYNC LIVE</div>
         </div>
 
         <div className="fn-bento">
@@ -515,7 +524,8 @@ function FutureSystems() {
           <FnTile size="sm" tile={TILES[3]} />
           <FnTile size="sm" tile={TILES[4]} />
           <FnTile size="sm" tile={TILES[5]} />
-          <FnTile size="xl" tile={{ ...TILES[6], liveMetric: liveIdtp, metricLabel: 'transactions settled today · live' }} />
+          <FnTile size="sm" tile={TILES[6]} />
+          <FnTile size="xl" tile={{ ...TILES[7], liveMetric: liveIdtp, metricLabel: 'transactions settled today · live' }} />
         </div>
       </div>
     </section>
@@ -646,7 +656,7 @@ export function FutureFooter() {
         <div className="fn-foot">
           <div className="fn-foot__brand">
             <div className="fn-nav__brand"><span className="fn-nav__brand-dot"></span> techvision</div>
-            <p>Built in Dhaka. Run from Dhaka. Shipping the future to seven mission-critical systems since 2014.</p>
+            <p>Built in Dhaka. Run from Dhaka. Shipping the future to eight mission-critical systems since 2014.</p>
           </div>
           {Object.entries(FOOTER_LINKS).map(([h, items]) => (
             <div key={h} className="fn-foot__col">
