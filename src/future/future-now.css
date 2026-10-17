@@ -1063,3 +1063,22 @@ body { background: var(--fn-bg); }
   object-fit: contain; display: block;
 }
 
+
+/* ── Mobile polish ───────────────────────────────────────────── */
+@media (max-width: 760px) {
+  /* 44px minimum touch targets */
+  .fn-nav__brand { min-height: 44px; }
+  .fn-tile__back-close { min-height: 44px; padding: 12px 18px; }
+  .fn-foot__col ul { gap: 0; }
+  .fn-foot__col a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  /* Tighter tracking so mono labels wrap less */
+  .fn-section__eyebrow { letter-spacing: 0.1em; }
+
+  /* Full-width hero CTAs */
+  .fn-hero__cta-stack { align-items: stretch; }
+  .fn-hero__cta-stack > * { justify-content: space-between; }
+
+  /* Keep nav and menu clear of notches */
+  .fn-nav { padding-left: max(var(--fn-pad-x), env(safe-area-inset-left)); padding-right: max(var(--fn-pad-x), env(safe-area-inset-right)); }
+}
